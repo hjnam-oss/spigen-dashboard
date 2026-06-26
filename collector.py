@@ -137,7 +137,8 @@ def get_blog_data():
                 reg_date = item.get('wdate', '')[:10].replace('.', '-')
                 if not reg_date.startswith('2026'):
                     continue
-                title = item.get('subject', '').strip()
+                import html
+                title = html.unescape(item.get('subject', '')).strip()
                 catname = item.get('catname', 'Culture')
                 views = int(item.get('count', 0) or 0)
                 print(f"  블로그 [{post_id}] 조회수: {views} | {title[:30]}...")
