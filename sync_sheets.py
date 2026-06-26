@@ -244,6 +244,7 @@ def main():
         return False
 
     new_rows = []
+    new_rows_keys = set()  # 이번 배치 내 중복 방지
 
     # 유튜브 영상 (2026년만)
     for video in data.get('youtube_videos_list', []):
@@ -251,9 +252,11 @@ def main():
             continue
         title = video.get('title', '').strip()
         date = video.get('date', '')
-        if is_duplicate(title, date, '유튜브'):
+        batch_key = ('유튜브', normalize(title))
+        if is_duplicate(title, date, '유튜브') or batch_key in new_rows_keys:
             print(f"  [중복 건너뜀] {title[:40]} ({date})")
             continue
+        new_rows_keys.add(batch_key)
         month = int(date.split('-')[1]) if date else 0
         new_rows.append({'date': date, 'row': [month, title, date, '유튜브', '']})
 
@@ -263,9 +266,11 @@ def main():
             continue
         title = post.get('title', '').strip()
         date = post.get('date', '')
-        if is_duplicate(title, date, '블로그'):
+        batch_key = ('블로그', normalize(title))
+        if is_duplicate(title, date, '블로그') or batch_key in new_rows_keys:
             print(f"  [중복 건너뜀] {title[:40]} ({date})")
             continue
+        new_rows_keys.add(batch_key)
         month = int(date.split('-')[1]) if date else 0
         new_rows.append({'date': date, 'row': [month, title, date, '블로그', post.get('category', '')]})
 
