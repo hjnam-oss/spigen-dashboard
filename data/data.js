@@ -1,5 +1,5 @@
 const metricsData = {
-    "last_updated": "2026-06-26 15:20:19 KST",
+    "last_updated": "2026-06-26 15:25:21 KST",
     "history": [
         {
             "date": "2026-01-31",
@@ -69,7 +69,7 @@ const metricsData = {
             "youtube_subscribers": 274,
             "youtube_views": 84480,
             "youtube_avg_views": 860,
-            "blog_total_posts": 233,
+            "blog_total_posts": 234,
             "linkedin_followers": 25100
         }
     ],
@@ -193,7 +193,7 @@ const metricsData = {
             "title": "싱가포르 1,2위 플랫폼의 소름 돋는 공략 차이 | 글로벌체크인",
             "thumbnail": "https://i.ytimg.com/vi/insr1zWLRxI/mqdefault.jpg",
             "date": "2026-04-29",
-            "views": 1612,
+            "views": 1611,
             "likes": 10
         },
         {
@@ -225,7 +225,7 @@ const metricsData = {
             "title": "어서 와, 신입사원은 처음이지? ✨ 신규입사자의 출근 첫날 VLOG",
             "thumbnail": "https://i.ytimg.com/vi/sGkR4slN6a4/mqdefault.jpg",
             "date": "2026-04-21",
-            "views": 472,
+            "views": 469,
             "likes": 12
         },
         {
@@ -249,7 +249,7 @@ const metricsData = {
             "title": "동남아 시장 TOP 셀러의 필승 전략 3가지🥇",
             "thumbnail": "https://i.ytimg.com/vi/dEr5hb1doUM/mqdefault.jpg",
             "date": "2026-03-30",
-            "views": 648,
+            "views": 647,
             "likes": 3
         },
         {
@@ -281,7 +281,7 @@ const metricsData = {
             "title": "전 세계 50개국 시장을 장악한 글로벌 전략가들🔥ㅣ슈피겐코리아의 해외전략사업부를 소개합니다",
             "thumbnail": "https://i.ytimg.com/vi/bOcMaDLEsoE/mqdefault.jpg",
             "date": "2026-03-13",
-            "views": 772,
+            "views": 771,
             "likes": 20
         },
         {
@@ -361,11 +361,18 @@ const metricsData = {
             "title": "슈피겐코리아가 만들어가는 '일하는 방식' - 회계 RPA 자동화 사례",
             "thumbnail": "https://i.ytimg.com/vi/XteRE-5ZB6c/mqdefault.jpg",
             "date": "2026-01-05",
-            "views": 489,
+            "views": 488,
             "likes": 16
         }
     ],
     "blog_posts_list": [
+        {
+            "id": "1173",
+            "title": "테스트",
+            "category": "& Design",
+            "date": "2026-06-26",
+            "views": 1
+        },
         {
             "id": "1168",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - FDI전략기획팀",
