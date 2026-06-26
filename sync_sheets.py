@@ -269,30 +269,7 @@ def main():
         month = int(date.split('-')[1]) if date else 0
         new_rows.append({'date': date, 'row': [month, title, date, '블로그', post.get('category', '')]})
 
-    # 현재 데이터 타이틀 세트
-    current_blog_titles = set(normalize(p.get('title', '').strip()) for p in data.get('blog_posts_list', []))
-    current_yt_titles = set(normalize(v.get('title', '').strip()) for v in data.get('youtube_videos_list', []))
-
-    def title_exists(norm, current_titles):
-        return any(
-            min(len(norm), len(ct)) >= 8 and norm[:min(len(norm), len(ct))] == ct[:min(len(norm), len(ct))]
-            for ct in current_titles
-        )
-
     sheet_id = get_sheet_id(service)
-    rows_to_delete = []
-    for e in existing:
-        norm = normalize(e['title'])
-        if e['channel'] == '블로그' and not title_exists(norm, current_blog_titles):
-            rows_to_delete.append(e['row_index'])
-            print(f"  [삭제-블로그] {e['title'][:40]}")
-        elif e['channel'] == '유튜브' and not title_exists(norm, current_yt_titles):
-            rows_to_delete.append(e['row_index'])
-            print(f"  [삭제-유튜브] {e['title'][:40]}")
-
-    if rows_to_delete:
-        delete_rows(service, sheet_id, rows_to_delete)
-        print(f"{len(rows_to_delete)}개 항목 삭제 완료")
 
     if not new_rows:
         print("\n추가할 새 항목이 없습니다.")
