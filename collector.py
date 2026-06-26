@@ -271,17 +271,10 @@ def main():
         updated_posts.sort(key=lambda x: x['date'], reverse=True)
         data['blog_posts_list'] = updated_posts
         
-    # 유튜브 영상 목록 누적 업데이트
-    all_videos = data.get('youtube_videos_list', [])
-    video_dict = {v['id']: v for v in all_videos if 'id' in v}
-    
+    # 유튜브 영상 목록: 채널에서 새로 가져온 영상으로 교체 (잘못된 채널 영상 방지)
     if yt_data and yt_data.get('month_videos'):
-        for v in yt_data['month_videos']:
-            video_dict[v['id']] = v
-            
-    updated_videos = list(video_dict.values())
-    updated_videos.sort(key=lambda x: x['date'], reverse=True)
-    data['youtube_videos_list'] = updated_videos
+        new_videos = sorted(yt_data['month_videos'], key=lambda x: x['date'], reverse=True)
+        data['youtube_videos_list'] = new_videos
     
     data['last_updated'] = current_time
     
