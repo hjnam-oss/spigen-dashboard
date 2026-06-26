@@ -72,7 +72,7 @@ def load_data_js():
 
 
 def get_existing_data(service):
-    """시트에서 기존 데이터 전체 읽기"""
+    """시트에서 기존 데이터 전체 읽기 (행 번호 포함)"""
     range_name = f"'{SHEET_NAME}'!B{DATA_START_ROW}:F"
     result = service.spreadsheets().values().get(
         spreadsheetId=SPREADSHEET_ID,
@@ -80,13 +80,39 @@ def get_existing_data(service):
     ).execute()
     rows = result.get('values', [])
     existing = []
-    for row in rows:
+    for i, row in enumerate(rows):
         title = row[1].strip() if len(row) > 1 else ''
         date = row[2].strip() if len(row) > 2 else ''
         channel = row[3].strip() if len(row) > 3 else ''
         if title:
-            existing.append({'title': title, 'date': date, 'channel': channel})
+            existing.append({
+                'title': title,
+                'date': date,
+                'channel': channel,
+                'row_index': DATA_START_ROW + i  # 실제 행 번호
+            })
     return existing
+
+
+def delete_rows(service, sheet_id, row_indices):
+    """지정한 행들 삭제 (역순으로 삭제해야 인덱스 유지)"""
+    requests = []
+    for row_index in sorted(row_indices, reverse=True):
+        requests.append({
+            'deleteDimension': {
+                'range': {
+                    'sheetId': sheet_id,
+                    'dimension': 'ROWS',
+                    'startIndex': row_index - 1,  # 0-based
+                    'endIndex': row_index
+                }
+            }
+        })
+    if requests:
+        service.spreadsheets().batchUpdate(
+            spreadsheetId=SPREADSHEET_ID,
+            body={'requests': requests}
+        ).execute()
 
 
 def get_last_row(service):
@@ -242,6 +268,30 @@ def main():
             continue
         month = int(date.split('-')[1]) if date else 0
         new_rows.append({'date': date, 'row': [month, title, date, '블로그', post.get('category', '')]})
+
+    # 삭제된 블로그 게시글 시트에서 제거
+    current_blog_titles = set()
+    for post in data.get('blog_posts_list', []):
+        current_blog_titles.add(normalize(post.get('title', '').strip()))
+
+    sheet_id = get_sheet_id(service)
+    rows_to_delete = []
+    for e in existing:
+        if e['channel'] != '블로그':
+            continue
+        norm = normalize(e['title'])
+        # 현재 블로그 목록에 없으면 삭제 대상
+        exists = any(
+            min(len(norm), len(ct)) >= 8 and norm[:min(len(norm), len(ct))] == ct[:min(len(norm), len(ct))]
+            for ct in current_blog_titles
+        )
+        if not exists:
+            rows_to_delete.append(e['row_index'])
+            print(f"  [삭제] {e['title'][:40]} ({e['date']})")
+
+    if rows_to_delete:
+        delete_rows(service, sheet_id, rows_to_delete)
+        print(f"{len(rows_to_delete)}개 항목 삭제 완료")
 
     if not new_rows:
         print("\n추가할 새 항목이 없습니다.")
