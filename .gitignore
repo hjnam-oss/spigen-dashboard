@@ -3,8 +3,10 @@ client_secrets.json.json
 token.json
 token_sheets.json
 
-# 설정 파일 (config.example.py 참고해서 직접 생성)
+# 환경변수 파일 (.env.example 참고해서 직접 생성)
+.env
 config.py
+assets/config.js
 
 # 테스트 및 개발용 임시 파일
 test_*.py

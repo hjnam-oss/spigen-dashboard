@@ -6,7 +6,9 @@ from datetime import datetime
 import pytz
 
 # 설정
-from config import YOUTUBE_API_KEY
+from dotenv import load_dotenv
+load_dotenv()
+YOUTUBE_API_KEY = os.environ.get('YOUTUBE_API_KEY')
 YOUTUBE_SEARCH_QUERY = "슈피겐코리아"
 BLOG_URL = "https://www.spigenkorea.co.kr/culture/news.php"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))

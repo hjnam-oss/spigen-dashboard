@@ -1,53 +1,8 @@
-const YT_API_KEY = CONFIG.YT_API_KEY;
-const YT_CHANNEL_QUERY = '슈피겐코리아';
-
-async function fetchYoutubeVideos() {
-    try {
-        // 1. 채널 ID 검색
-        const searchRes = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&q=${encodeURIComponent(YT_CHANNEL_QUERY)}&type=channel&key=${YT_API_KEY}`).then(r => r.json());
-        if (!searchRes.items || searchRes.items.length === 0) return null;
-        const channelId = searchRes.items[0].id.channelId;
-
-        // 2. 업로드 재생목록 ID 조회
-        const statsRes = await fetch(`https://www.googleapis.com/youtube/v3/channels?part=contentDetails&id=${channelId}&key=${YT_API_KEY}`).then(r => r.json());
-        const uploadsPlaylistId = statsRes.items[0].contentDetails.relatedPlaylists.uploads;
-
-        // 3. 최근 50개 영상 ID 수집
-        const playlistRes = await fetch(`https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=${uploadsPlaylistId}&maxResults=50&key=${YT_API_KEY}`).then(r => r.json());
-        if (!playlistRes.items) return null;
-        const videoIds = playlistRes.items.map(item => item.snippet.resourceId.videoId);
-
-        // 4. 영상별 통계 조회
-        const vidsRes = await fetch(`https://www.googleapis.com/youtube/v3/videos?part=statistics,snippet&id=${videoIds.join(',')}&key=${YT_API_KEY}`).then(r => r.json());
-        if (!vidsRes.items) return null;
-
-        return vidsRes.items.map(v => ({
-            id: v.id,
-            title: v.snippet.title,
-            thumbnail: v.snippet.thumbnails.medium.url,
-            date: v.snippet.publishedAt.substring(0, 10),
-            views: parseInt(v.statistics.viewCount || 0),
-            likes: parseInt(v.statistics.likeCount || 0)
-        }));
-    } catch (e) {
-        console.warn('YouTube API 호출 실패, 저장된 데이터를 사용합니다.', e);
-        return null;
-    }
-}
-
 let chartInstance = null;
 
-document.addEventListener('DOMContentLoaded', async () => {
+document.addEventListener('DOMContentLoaded', () => {
     try {
         const data = metricsData;
-
-        document.getElementById('lastUpdated').textContent = '유튜브 데이터 로딩 중...';
-
-        // YouTube API에서 실제 영상 데이터 가져오기
-        const liveVideos = await fetchYoutubeVideos();
-        if (liveVideos && liveVideos.length > 0) {
-            data.youtube_videos_list = liveVideos;
-        }
 
         document.getElementById('lastUpdated').textContent = `최근 업데이트: ${data.last_updated}`;
 

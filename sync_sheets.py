@@ -13,7 +13,10 @@ CLIENT_SECRETS = os.path.join(BASE_DIR, 'client_secrets.json.json')
 TOKEN_FILE = os.path.join(BASE_DIR, 'token_sheets.json')  # Sheets 전용 토큰
 DATA_JS = os.path.join(BASE_DIR, 'data', 'data.js')
 
-from config import SPREADSHEET_ID
+import os
+from dotenv import load_dotenv
+load_dotenv()
+SPREADSHEET_ID = os.environ.get('SPREADSHEET_ID')
 SHEET_NAME = '26년 홍보 컨텐츠_블로그'
 DATA_START_ROW = 9  # 8행이 헤더, 9행부터 데이터
 
