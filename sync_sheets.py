@@ -253,10 +253,12 @@ def main():
     for item in new_rows:
         print(f"  [{item['row'][3]}] {item['row'][1][:40]} ({item['row'][2]})")
 
-    confirm = input("\n시트에 추가하시겠습니까? (y/n): ").strip().lower()
-    if confirm != 'y':
-        print("취소되었습니다.")
-        return
+    import sys
+    if sys.stdin.isatty():
+        confirm = input("\n시트에 추가하시겠습니까? (y/n): ").strip().lower()
+        if confirm != 'y':
+            print("취소되었습니다.")
+            return
 
     append_rows(service, [item['row'] for item in new_rows])
     print(f"완료! {len(new_rows)}개 항목이 추가되었습니다.")
