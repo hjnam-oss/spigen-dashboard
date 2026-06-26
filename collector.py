@@ -114,59 +114,14 @@ def get_post_info(post_id, headers):
 AJAX_URL = 'https://www.spigenkorea.co.kr/admin/bbs/ajax_list.php'
 
 def get_blog_data():
+    """AJAX만 사용 — 개별 페이지 방문 없음 (조회수 오염 방지)"""
     try:
-        import re
         headers = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
-        response = requests.get(BLOG_URL, headers=headers)
-        soup = BeautifulSoup(response.text, 'html.parser')
-
-        # 전체 게시글 수 추출
-        total_posts = 0
-        total_text = soup.find(string=lambda t: t and '전체.' in t)
-        if total_text:
-            match = re.search(r'전체.\s*(\d+)', total_text)
-            if match:
-                total_posts = int(match.group(1))
-
-        # 1페이지: 기존 HTML 파싱
         seen_ids = set()
         posts = []
+        page = 1
 
-        def parse_from_html(post_items):
-            for item in post_items:
-                href = item.get('href', '')
-                idx_match = re.search(r'idx=(\d+)', href)
-                post_id = idx_match.group(1) if idx_match else ''
-                if not post_id or post_id in seen_ids:
-                    continue
-                seen_ids.add(post_id)
-                parent_text = item.get_text(separator=' ', strip=True)
-                date_match = re.search(r'date_range\s*(\d{4})\.(\d{2})\.(\d{2})', parent_text)
-                if not date_match:
-                    continue
-                date_str = f"{date_match.group(1)}-{date_match.group(2)}-{date_match.group(3)}"
-                before_date = re.split(r'date_range', parent_text)[0].strip()
-                parts = [p.strip() for p in before_date.split() if len(p.strip()) > 1]
-                title = ' '.join(parts[1:]) if len(parts) > 1 else (parts[0] if parts else '')
-                category = parts[0] if parts else 'Culture'
-                if date_str:
-                    views, page_title = get_post_info(post_id, headers) if post_id else (0, '')
-                    final_title = page_title if page_title else title
-                    print(f"  블로그 [{post_id}] 조회수: {views} | {final_title[:30]}...")
-                    posts.append({
-                        "id": post_id,
-                        "title": final_title,
-                        "category": category,
-                        "date": date_str,
-                        "views": views
-                    })
-
-        parse_from_html(soup.select('a[href*="ptype=view"]'))
-
-        # 2페이지 이후: AJAX 엔드포인트로 수집
-        page = 2
         while True:
-            print(f"  [AJAX] {page}페이지 수집 중...")
             ajax_res = requests.post(AJAX_URL, data={
                 'category': '', 'searchopt': '', 'searchkey': '',
                 'code': 'news', 'page': page, 'fullpage_load': 'N'
@@ -179,24 +134,24 @@ def get_blog_data():
                 if not post_id or post_id in seen_ids:
                     continue
                 seen_ids.add(post_id)
-                subject = item.get('subject', '')
+                reg_date = item.get('wdate', '')[:10].replace('.', '-')
+                if not reg_date.startswith('2026'):
+                    continue
+                title = item.get('subject', '').strip()
                 catname = item.get('catname', 'Culture')
-                reg_date = item.get('wdate', '')[:10].replace('.', '-')  # 2026.05.07 → 2026-05-07
-                if subject and reg_date and reg_date.startswith('2026'):
-                    views, page_title = get_post_info(post_id, headers)
-                    final_title = page_title if page_title else subject
-                    print(f"  블로그 [{post_id}] 조회수: {views} | {final_title[:30]}...")
-                    posts.append({
-                        "id": post_id,
-                        "title": final_title,
-                        "category": catname,
-                        "date": reg_date,
-                        "views": views
-                    })
+                views = item.get('count', 0)
+                print(f"  블로그 [{post_id}] 조회수: {views} | {title[:30]}...")
+                posts.append({
+                    "id": post_id,
+                    "title": title,
+                    "category": catname,
+                    "date": reg_date,
+                    "views": views
+                })
             page += 1
 
         return {
-            "total_posts": total_posts if total_posts > 0 else len(posts),
+            "total_posts": len(seen_ids),
             "posts": posts
         }
     except Exception as e:
