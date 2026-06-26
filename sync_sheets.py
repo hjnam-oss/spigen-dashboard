@@ -141,18 +141,15 @@ def append_rows(service, rows):
     new_start = last_row + 1
     sheet_id = get_sheet_id(service)
 
-    # 1. B열을 수식으로 대체 (month → =MONTH(D행번호))
     formatted_rows = []
     for i, row in enumerate(rows):
         row_num = new_start + i
-        new_row = [f'=MONTH(D{row_num})'] + list(row)[1:]  # B열만 수식으로
+        new_row = [f'=MONTH(D{row_num})'] + list(row)[1:]
         formatted_rows.append(new_row)
 
-    # 2. 데이터 추가
-    range_name = f"'{SHEET_NAME}'!B:G"
     service.spreadsheets().values().append(
         spreadsheetId=SPREADSHEET_ID,
-        range=range_name,
+        range=f"'{SHEET_NAME}'!B:G",
         valueInputOption='USER_ENTERED',
         insertDataOption='INSERT_ROWS',
         body={'values': formatted_rows}
@@ -164,7 +161,6 @@ def append_rows(service, rows):
     service.spreadsheets().batchUpdate(
         spreadsheetId=SPREADSHEET_ID,
         body={'requests': [
-            # 3. 기존 서식 복사 (첫 번째 데이터 행 → 새 행들)
             {
                 'copyPaste': {
                     'source': {
@@ -184,13 +180,12 @@ def append_rows(service, rows):
                     'pasteType': 'PASTE_FORMAT'
                 }
             },
-            # 4. 필터 범위 확장 (새 행 포함)
             {
                 'setBasicFilter': {
                     'filter': {
                         'range': {
                             'sheetId': sheet_id,
-                            'startRowIndex': DATA_START_ROW - 2,  # 헤더행 포함
+                            'startRowIndex': DATA_START_ROW - 2,
                             'endRowIndex': total_last_row,
                             'startColumnIndex': 1,
                             'endColumnIndex': 7
