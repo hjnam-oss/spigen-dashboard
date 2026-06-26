@@ -216,15 +216,8 @@ def main():
         data['history'] = data['history'][-30:]
         
     if blog_data and blog_data.get('posts'):
-        # 블로그 게시물 누적 업데이트 (유튜브와 동일한 방식)
-        all_posts = data.get('blog_posts_list', [])
-        post_dict = {p['id']: p for p in all_posts if p.get('id')}
-        for p in blog_data['posts']:
-            if p.get('id'):
-                post_dict[p['id']] = p
-        updated_posts = list(post_dict.values())
-        updated_posts.sort(key=lambda x: x['date'], reverse=True)
-        data['blog_posts_list'] = updated_posts
+        # 블로그 게시물 교체 방식 (삭제된 글 자동 반영)
+        data['blog_posts_list'] = sorted(blog_data['posts'], key=lambda x: x['date'], reverse=True)
         
     # 유튜브 영상 목록: 채널에서 새로 가져온 영상으로 교체 (잘못된 채널 영상 방지)
     if yt_data and yt_data.get('month_videos'):
