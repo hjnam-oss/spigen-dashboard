@@ -1,5 +1,5 @@
 const metricsData = {
-    "last_updated": "2026-06-26 12:17:56 KST",
+    "last_updated": "2026-06-26 12:20:43 KST",
     "history": [
         {
             "date": "2026-01-31",
@@ -157,30 +157,6 @@ const metricsData = {
             "likes": 7
         },
         {
-            "id": "TQpVugwLNgY",
-            "title": "하나는 바람💨 하나는 얼음🧊 | 에어닉 폴디니 선풍기 A906 vs A908",
-            "thumbnail": "https://i.ytimg.com/vi/TQpVugwLNgY/mqdefault.jpg",
-            "date": "2026-06-11",
-            "views": 1991,
-            "likes": 12
-        },
-        {
-            "id": "OaKzAHT9TxA",
-            "title": "[연세대 서포터즈 ADCUS] 혼자 뛰었는데 외롭지 않은 이유 (with. 다이내믹쉴드 러닝베스트) | 슈피겐 1팀",
-            "thumbnail": "https://i.ytimg.com/vi/OaKzAHT9TxA/mqdefault.jpg",
-            "date": "2026-06-05",
-            "views": 1772,
-            "likes": 17
-        },
-        {
-            "id": "4QpR6YuL6WQ",
-            "title": "[연세대 서포터즈 ADCUS] 남친의 사진 실력, 오늘은 다르다. (with. 원더스냅 맥핏 셀카봉) | 슈피겐 4팀",
-            "thumbnail": "https://i.ytimg.com/vi/4QpR6YuL6WQ/mqdefault.jpg",
-            "date": "2026-06-04",
-            "views": 440,
-            "likes": 8
-        },
-        {
             "id": "0_cjlAYrhbE",
             "title": "유럽 평균을 뛰어넘은 스페인의 의외의 쇼핑 품목 | 글로벌체크인",
             "thumbnail": "https://i.ytimg.com/vi/0_cjlAYrhbE/mqdefault.jpg",
@@ -245,14 +221,6 @@ const metricsData = {
             "likes": 20
         },
         {
-            "id": "jlTUN7-o3zg",
-            "title": "360도 회전 NEW 맥세이프 롱바디 셀카봉✨",
-            "thumbnail": "https://i.ytimg.com/vi/jlTUN7-o3zg/mqdefault.jpg",
-            "date": "2026-04-27",
-            "views": 850,
-            "likes": 8
-        },
-        {
             "id": "sGkR4slN6a4",
             "title": "어서 와, 신입사원은 처음이지? ✨ 신규입사자의 출근 첫날 VLOG",
             "thumbnail": "https://i.ytimg.com/vi/sGkR4slN6a4/mqdefault.jpg",
@@ -269,14 +237,6 @@ const metricsData = {
             "likes": 9
         },
         {
-            "id": "6-FuU67OT94",
-            "title": "🎓슈피겐 X 연세대 ADCUS 서포터즈 발대식 현장🎓",
-            "thumbnail": "https://i.ytimg.com/vi/6-FuU67OT94/mqdefault.jpg",
-            "date": "2026-04-10",
-            "views": 828,
-            "likes": 9
-        },
-        {
             "id": "VCZmySXFMSM",
             "title": "슈피겐 × 연세대 ADCUS 서포터즈 발대식🎉",
             "thumbnail": "https://i.ytimg.com/vi/VCZmySXFMSM/mqdefault.jpg",
@@ -285,28 +245,12 @@ const metricsData = {
             "likes": 11
         },
         {
-            "id": "3DXKZgRSjJU",
-            "title": "S26 울트라 충전기 유목민 탈출! 드디어 종결템 등장 🚀",
-            "thumbnail": "https://i.ytimg.com/vi/3DXKZgRSjJU/mqdefault.jpg",
-            "date": "2026-04-02",
-            "views": 1139,
-            "likes": 7
-        },
-        {
             "id": "dEr5hb1doUM",
             "title": "동남아 시장 TOP 셀러의 필승 전략 3가지🥇",
             "thumbnail": "https://i.ytimg.com/vi/dEr5hb1doUM/mqdefault.jpg",
             "date": "2026-03-30",
             "views": 647,
             "likes": 3
-        },
-        {
-            "id": "EEtJROCg8uY",
-            "title": "르망24시케이스 출전합니다ㅣ슈피겐c11 르망 #갤럭시s26울트라 #삼성닷컴",
-            "thumbnail": "https://i.ytimg.com/vi/EEtJROCg8uY/mqdefault.jpg",
-            "date": "2026-03-27",
-            "views": 2869,
-            "likes": 7
         },
         {
             "id": "J8PdTXo0jMw",
@@ -349,30 +293,6 @@ const metricsData = {
             "likes": 7
         },
         {
-            "id": "HSFAAb3nqUg",
-            "title": "#갤럭시s26울트라 강화유리부터 케이스까지 풀세팅 ㄱㄱ",
-            "thumbnail": "https://i.ytimg.com/vi/HSFAAb3nqUg/mqdefault.jpg",
-            "date": "2026-03-07",
-            "views": 176131,
-            "likes": 927
-        },
-        {
-            "id": "hSpnMAGqWIk",
-            "title": "Qi2 25W 충전되는 S26울트라 테크 감성 케이스 등장 #S26울트라케이스 #제로원",
-            "thumbnail": "https://i.ytimg.com/vi/hSpnMAGqWIk/mqdefault.jpg",
-            "date": "2026-03-06",
-            "views": 6722,
-            "likes": 33
-        },
-        {
-            "id": "OHskK3Tdqfs",
-            "title": "S26시리즈, 근본 화이트에 Qi2 ready 케이스 입혀봄 #갤럭시S26맥세이프케이스 #s26qi2케이스",
-            "thumbnail": "https://i.ytimg.com/vi/OHskK3Tdqfs/mqdefault.jpg",
-            "date": "2026-03-05",
-            "views": 5065,
-            "likes": 28
-        },
-        {
             "id": "i3OqxinrYkg",
             "title": "리더들이 같이 일하고 싶은 사람은?",
             "thumbnail": "https://i.ytimg.com/vi/i3OqxinrYkg/mqdefault.jpg",
@@ -413,36 +333,12 @@ const metricsData = {
             "likes": 25
         },
         {
-            "id": "UH8PtuvVw2o",
-            "title": "S26울트라 맥세이프케이스 실착느낌 #갤럭시S26맥세이프케이스 #qi2ready인증",
-            "thumbnail": "https://i.ytimg.com/vi/UH8PtuvVw2o/mqdefault.jpg",
-            "date": "2026-02-27",
-            "views": 16587,
-            "likes": 55
-        },
-        {
-            "id": "PrNyCNtCt6c",
-            "title": "슈피겐 갤럭시S26 라인업 공개 #Qi2ready인증 #S26맥세이프케이스",
-            "thumbnail": "https://i.ytimg.com/vi/PrNyCNtCt6c/mqdefault.jpg",
-            "date": "2026-02-25",
-            "views": 7204,
-            "likes": 26
-        },
-        {
             "id": "H2DzWsUTlgM",
             "title": "두쫀구 간식 받는 꿀팁 🍬",
             "thumbnail": "https://i.ytimg.com/vi/H2DzWsUTlgM/mqdefault.jpg",
             "date": "2026-02-04",
             "views": 2185,
             "likes": 7
-        },
-        {
-            "id": "duzijMFHbjg",
-            "title": "요즘 SNS에서 자주 보이는 매킨토시 케이스 언박싱",
-            "thumbnail": "https://i.ytimg.com/vi/duzijMFHbjg/mqdefault.jpg",
-            "date": "2026-02-03",
-            "views": 3489,
-            "likes": 27
         },
         {
             "id": "a_T3JJtkRFE",
@@ -467,182 +363,6 @@ const metricsData = {
             "date": "2026-01-05",
             "views": 488,
             "likes": 16
-        },
-        {
-            "id": "hp4IfzEEKJc",
-            "title": "이거 어디까지 들어가는 거예요↗ #맥세이프카드지갑",
-            "thumbnail": "https://i.ytimg.com/vi/hp4IfzEEKJc/mqdefault.jpg",
-            "date": "2026-01-05",
-            "views": 14569,
-            "likes": 82
-        },
-        {
-            "id": "gLCZMTUZTKU",
-            "title": "우리가 찾는 아이디어: 'Small & Simple'의 힘",
-            "thumbnail": "https://i.ytimg.com/vi/gLCZMTUZTKU/mqdefault.jpg",
-            "date": "2025-07-31",
-            "views": 624,
-            "likes": 3
-        },
-        {
-            "id": "jKMtvgY9yBw",
-            "title": "슈피겐코리아에서 일한다는 것",
-            "thumbnail": "https://i.ytimg.com/vi/jKMtvgY9yBw/mqdefault.jpg",
-            "date": "2025-03-26",
-            "views": 2896,
-            "likes": 24
-        },
-        {
-            "id": "XHNWrvdK4P0",
-            "title": "2025 슈피겐코리아 신규입사자 워크숍",
-            "thumbnail": "https://i.ytimg.com/vi/XHNWrvdK4P0/mqdefault.jpg",
-            "date": "2025-01-21",
-            "views": 1602,
-            "likes": 15
-        },
-        {
-            "id": "JsU8UUCYgGA",
-            "title": "디테일로 완성되는 디자인, OneTap Pro 3 CryoMax 이야기 #shorts",
-            "thumbnail": "https://i.ytimg.com/vi/JsU8UUCYgGA/mqdefault.jpg",
-            "date": "2024-12-11",
-            "views": 319,
-            "likes": 9
-        },
-        {
-            "id": "HiVQiWn2cC8",
-            "title": "일상에 편리함을 더해주는 디테일, 데일리 슬링백 이야기 #shorts",
-            "thumbnail": "https://i.ytimg.com/vi/HiVQiWn2cC8/mqdefault.jpg",
-            "date": "2024-11-27",
-            "views": 376,
-            "likes": 10
-        },
-        {
-            "id": "IE9uPR2qD10",
-            "title": "[슈피겐코리아] 팬덤 시장에서의 성과, 페스티버 성장이야기 🌟 | 페스티버 이야기 3탄 (THE END)",
-            "thumbnail": "https://i.ytimg.com/vi/IE9uPR2qD10/mqdefault.jpg",
-            "date": "2024-11-15",
-            "views": 342,
-            "likes": 10
-        },
-        {
-            "id": "1DN5dQvObOk",
-            "title": "소비자를 위한 디자인의 가치, 구글 TV 스트리머 케이스 이야기 #shorts",
-            "thumbnail": "https://i.ytimg.com/vi/1DN5dQvObOk/mqdefault.jpg",
-            "date": "2024-11-14",
-            "views": 269,
-            "likes": 8
-        },
-        {
-            "id": "pTYTdrjFKqc",
-            "title": "[슈피겐코리아] 새로운 팬덤 경험을 제공하는 페스티버 사업이야기🎬 | 페스티버 이야기 2탄",
-            "thumbnail": "https://i.ytimg.com/vi/pTYTdrjFKqc/mqdefault.jpg",
-            "date": "2024-11-12",
-            "views": 307,
-            "likes": 7
-        },
-        {
-            "id": "nFJavg_beuE",
-            "title": "일상을 바꾸는 EDC 아이템, 카라비너 이야기  #shorts",
-            "thumbnail": "https://i.ytimg.com/vi/nFJavg_beuE/mqdefault.jpg",
-            "date": "2024-11-06",
-            "views": 1236,
-            "likes": 12
-        },
-        {
-            "id": "wM1M5TCaqSc",
-            "title": "[슈피겐코리아] 슈피겐의 팬덤 비즈니스, 페스티버✨ | 페스티버 이야기 1탄",
-            "thumbnail": "https://i.ytimg.com/vi/wM1M5TCaqSc/mqdefault.jpg",
-            "date": "2024-11-05",
-            "views": 405,
-            "likes": 18
-        },
-        {
-            "id": "9X8gcOTzoII",
-            "title": "슈피겐 폰 케이스가 얼마나 튼튼하냐고요? #shorts",
-            "thumbnail": "https://i.ytimg.com/vi/9X8gcOTzoII/mqdefault.jpg",
-            "date": "2024-10-07",
-            "views": 395,
-            "likes": 5
-        },
-        {
-            "id": "13yCVwx9UY0",
-            "title": "스트랩, 어디까지 당겨봤니? #shorts",
-            "thumbnail": "https://i.ytimg.com/vi/13yCVwx9UY0/mqdefault.jpg",
-            "date": "2024-10-04",
-            "views": 740,
-            "likes": 7
-        },
-        {
-            "id": "xUBaWZh5dgo",
-            "title": "방수 시험, 이렇게 합니다 #shorts",
-            "thumbnail": "https://i.ytimg.com/vi/xUBaWZh5dgo/mqdefault.jpg",
-            "date": "2024-10-04",
-            "views": 206,
-            "likes": 4
-        },
-        {
-            "id": "i1KEdCnTjM4",
-            "title": "믿고 쓸 수 있는 이유, 극한의 텀블 시험 #shorts",
-            "thumbnail": "https://i.ytimg.com/vi/i1KEdCnTjM4/mqdefault.jpg",
-            "date": "2024-10-02",
-            "views": 180,
-            "likes": 3
-        },
-        {
-            "id": "OXgRtjTJX3M",
-            "title": "슈피겐X고려대 : 채용박람회 현장 스케치 #shorts",
-            "thumbnail": "https://i.ytimg.com/vi/OXgRtjTJX3M/mqdefault.jpg",
-            "date": "2024-09-10",
-            "views": 782,
-            "likes": 9
-        },
-        {
-            "id": "9Nc3gEquvHI",
-            "title": "당신의 업무 효율을 높이는 방법  #shorts",
-            "thumbnail": "https://i.ytimg.com/vi/9Nc3gEquvHI/mqdefault.jpg",
-            "date": "2024-09-04",
-            "views": 240,
-            "likes": 4
-        },
-        {
-            "id": "0KAjHHT6Vzs",
-            "title": "업무 성장을 위한 비결은 OOO에 있다  #shorts",
-            "thumbnail": "https://i.ytimg.com/vi/0KAjHHT6Vzs/mqdefault.jpg",
-            "date": "2024-09-04",
-            "views": 140,
-            "likes": 6
-        },
-        {
-            "id": "-mB_K1LEPOM",
-            "title": "[슈피겐코리아] 정규직 입사 후 더욱 ‘슈’며들다 🥰  │ 그가 슈피겐에 빠져들 수 밖에 없는 이유 : Q&A TIME",
-            "thumbnail": "https://i.ytimg.com/vi/-mB_K1LEPOM/mqdefault.jpg",
-            "date": "2024-09-04",
-            "views": 734,
-            "likes": 8
-        },
-        {
-            "id": "0wnzDRvAD8Y",
-            "title": "단 1초의 망설임 없이 채용연계형 인턴에 도전한 이유 #shorts",
-            "thumbnail": "https://i.ytimg.com/vi/0wnzDRvAD8Y/mqdefault.jpg",
-            "date": "2024-09-03",
-            "views": 541,
-            "likes": 7
-        },
-        {
-            "id": "jsgX_o7N-Tc",
-            "title": "리모트 인턴십 우수 인턴이 받는 혜택  #shorts",
-            "thumbnail": "https://i.ytimg.com/vi/jsgX_o7N-Tc/mqdefault.jpg",
-            "date": "2024-09-03",
-            "views": 309,
-            "likes": 6
-        },
-        {
-            "id": "5QkEXpx1t_s",
-            "title": "슈피겐의 리모트 인턴십 #shorts",
-            "thumbnail": "https://i.ytimg.com/vi/5QkEXpx1t_s/mqdefault.jpg",
-            "date": "2024-09-03",
-            "views": 281,
-            "likes": 6
         }
     ],
     "blog_posts_list": [
@@ -658,119 +378,119 @@ const metricsData = {
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - FDI전략기획팀",
             "category": "Culture",
             "date": "2026-06-12",
-            "views": 201
+            "views": 202
         },
         {
             "id": "1167",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 해외사업부문",
             "category": "Culture",
             "date": "2026-06-12",
-            "views": 221
+            "views": 222
         },
         {
             "id": "1166",
             "title": "골프공으로 시장을 설득하는 법",
             "category": "Culture",
             "date": "2026-06-11",
-            "views": 163
+            "views": 164
         },
         {
             "id": "1165",
             "title": "직무 이야기 : 모바일제품개발팀 제품 디자이너",
             "category": "Job",
             "date": "2026-06-11",
-            "views": 225
+            "views": 226
         },
         {
             "id": "1159",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 고객경험전략팀",
             "category": "Culture",
             "date": "2026-05-29",
-            "views": 399
+            "views": 400
         },
         {
             "id": "1158",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 연구개발부문",
             "category": "Culture",
             "date": "2026-05-18",
-            "views": 515
+            "views": 516
         },
         {
             "id": "1155",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 인재개발팀",
             "category": "Culture",
             "date": "2026-05-07",
-            "views": 513
+            "views": 514
         },
         {
             "id": "1153",
             "title": "매일의 충전을 다시 설계하다",
             "category": "Design",
             "date": "2026-04-28",
-            "views": 443
+            "views": 444
         },
         {
             "id": "1151",
             "title": "슈피겐, 기술을 넘어 기억까지 보호하다",
             "category": "Design",
             "date": "2026-04-17",
-            "views": 518
+            "views": 519
         },
         {
             "id": "1148",
             "title": "[Playlist] 우수사원 - 김회섭프로의 워크 키트",
             "category": "People",
             "date": "2026-03-26",
-            "views": 546
+            "views": 547
         },
         {
             "id": "1142",
             "title": "[Brand Insight] 모바일 액세서리 1위를 넘어 골프 시장의 게임 체인저로, '레가토(Legato)'",
             "category": "Culture",
             "date": "2026-03-13",
-            "views": 692
+            "views": 693
         },
         {
             "id": "1141",
             "title": "[Playlist] 우수사원 - 동단비프로의 워크 키트",
             "category": "People",
             "date": "2026-02-23",
-            "views": 831
+            "views": 832
         },
         {
             "id": "1140",
             "title": "[Playlist] 우수사원 - 나아름프로의 워크 키트",
             "category": "People",
             "date": "2026-02-13",
-            "views": 577
+            "views": 578
         },
         {
             "id": "1138",
             "title": "슈피겐코리아 랜선 오피스투어",
             "category": "Culture",
             "date": "2026-02-02",
-            "views": 806
+            "views": 807
         },
         {
             "id": "1137",
             "title": "[Playlist] 우수사원 - 이재승리더의 워크 키트",
             "category": "People",
             "date": "2026-01-29",
-            "views": 605
+            "views": 606
         },
         {
             "id": "1136",
             "title": "인프라관리: 비즈니스 연속성을 만드는 엔지니어",
             "category": "Job",
             "date": "2026-01-20",
-            "views": 519
+            "views": 520
         },
         {
             "id": "1135",
             "title": "26년 시무식 현장",
             "category": "Culture",
             "date": "2026-01-07",
-            "views": 567
+            "views": 568
         }
     ]
 };
