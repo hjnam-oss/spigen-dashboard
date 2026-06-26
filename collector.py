@@ -9,23 +9,15 @@ import pytz
 from dotenv import load_dotenv
 load_dotenv()
 YOUTUBE_API_KEY = os.environ.get('YOUTUBE_API_KEY')
-YOUTUBE_SEARCH_QUERY = "슈피겐코리아"
+YOUTUBE_CHANNEL_ID = "UCKBxMS12tw6l-CcxBpLOzNw"  # 슈피겐코리아 채용/문화 채널
 BLOG_URL = "https://www.spigenkorea.co.kr/culture/news.php"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_FILE = os.path.join(BASE_DIR, "data", "metrics.json")
 
 def get_youtube_channel_data():
     try:
-        # 1. 채널 ID 검색 (슈피겐코리아)
-        search_url = f"https://www.googleapis.com/youtube/v3/search?part=snippet&q={YOUTUBE_SEARCH_QUERY}&type=channel&key={YOUTUBE_API_KEY}"
-        search_res = requests.get(search_url).json()
-        if 'items' not in search_res or len(search_res['items']) == 0:
-            print("YouTube 채널을 찾을 수 없습니다.")
-            return None
-            
-        channel_id = search_res['items'][0]['id']['channelId']
-        
-        # 2. 채널 통계 및 업로드 재생목록 조회
+        # 채널 통계 및 업로드 재생목록 조회 (채널 ID 고정)
+        channel_id = YOUTUBE_CHANNEL_ID
         stats_url = f"https://www.googleapis.com/youtube/v3/channels?part=statistics,contentDetails&id={channel_id}&key={YOUTUBE_API_KEY}"
         stats_res = requests.get(stats_url).json()
         stats = stats_res['items'][0]['statistics']
