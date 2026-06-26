@@ -1,5 +1,5 @@
 const metricsData = {
-    "last_updated": "2026-06-26 15:25:21 KST",
+    "last_updated": "2026-06-26 15:28:00 KST",
     "history": [
         {
             "date": "2026-01-31",
@@ -69,7 +69,7 @@ const metricsData = {
             "youtube_subscribers": 274,
             "youtube_views": 84480,
             "youtube_avg_views": 860,
-            "blog_total_posts": 234,
+            "blog_total_posts": 233,
             "linkedin_followers": 25100
         }
     ],
@@ -193,7 +193,7 @@ const metricsData = {
             "title": "싱가포르 1,2위 플랫폼의 소름 돋는 공략 차이 | 글로벌체크인",
             "thumbnail": "https://i.ytimg.com/vi/insr1zWLRxI/mqdefault.jpg",
             "date": "2026-04-29",
-            "views": 1611,
+            "views": 1612,
             "likes": 10
         },
         {
@@ -249,7 +249,7 @@ const metricsData = {
             "title": "동남아 시장 TOP 셀러의 필승 전략 3가지🥇",
             "thumbnail": "https://i.ytimg.com/vi/dEr5hb1doUM/mqdefault.jpg",
             "date": "2026-03-30",
-            "views": 647,
+            "views": 648,
             "likes": 3
         },
         {
@@ -281,7 +281,7 @@ const metricsData = {
             "title": "전 세계 50개국 시장을 장악한 글로벌 전략가들🔥ㅣ슈피겐코리아의 해외전략사업부를 소개합니다",
             "thumbnail": "https://i.ytimg.com/vi/bOcMaDLEsoE/mqdefault.jpg",
             "date": "2026-03-13",
-            "views": 771,
+            "views": 772,
             "likes": 20
         },
         {
@@ -345,7 +345,7 @@ const metricsData = {
             "title": "아마존 베스트셀러 기업의 사옥은 어떻게 생겼을까?👀ㅣ슈피겐코리아 랜선 오피스투어🚩",
             "thumbnail": "https://i.ytimg.com/vi/a_T3JJtkRFE/mqdefault.jpg",
             "date": "2026-01-30",
-            "views": 1424,
+            "views": 1422,
             "likes": 7
         },
         {
@@ -366,13 +366,6 @@ const metricsData = {
         }
     ],
     "blog_posts_list": [
-        {
-            "id": "1173",
-            "title": "테스트",
-            "category": "& Design",
-            "date": "2026-06-26",
-            "views": 1
-        },
         {
             "id": "1168",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - FDI전략기획팀",
@@ -434,7 +427,7 @@ const metricsData = {
             "title": "슈피겐, 기술을 넘어 기억까지 보호하다",
             "category": "& Design",
             "date": "2026-04-17",
-            "views": 530
+            "views": 531
         },
         {
             "id": "1148",
