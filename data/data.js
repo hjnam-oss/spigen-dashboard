@@ -1,5 +1,5 @@
 const metricsData = {
-    "last_updated": "2026-06-26 11:56:42 KST",
+    "last_updated": "2026-06-26 12:03:03 KST",
     "history": [
         {
             "date": "2026-01-31",
@@ -66,10 +66,10 @@ const metricsData = {
         },
         {
             "date": "2026-06-26",
-            "youtube_subscribers": 273,
-            "youtube_views": 84480,
-            "youtube_avg_views": 859,
-            "blog_total_posts": 17,
+            "youtube_subscribers": 15300,
+            "youtube_views": 10891259,
+            "youtube_avg_views": 1401,
+            "blog_total_posts": 18,
             "linkedin_followers": 25100
         }
     ],
@@ -157,6 +157,30 @@ const metricsData = {
             "likes": 7
         },
         {
+            "id": "TQpVugwLNgY",
+            "title": "하나는 바람💨 하나는 얼음🧊 | 에어닉 폴디니 선풍기 A906 vs A908",
+            "thumbnail": "https://i.ytimg.com/vi/TQpVugwLNgY/mqdefault.jpg",
+            "date": "2026-06-11",
+            "views": 1991,
+            "likes": 12
+        },
+        {
+            "id": "OaKzAHT9TxA",
+            "title": "[연세대 서포터즈 ADCUS] 혼자 뛰었는데 외롭지 않은 이유 (with. 다이내믹쉴드 러닝베스트) | 슈피겐 1팀",
+            "thumbnail": "https://i.ytimg.com/vi/OaKzAHT9TxA/mqdefault.jpg",
+            "date": "2026-06-05",
+            "views": 1772,
+            "likes": 17
+        },
+        {
+            "id": "4QpR6YuL6WQ",
+            "title": "[연세대 서포터즈 ADCUS] 남친의 사진 실력, 오늘은 다르다. (with. 원더스냅 맥핏 셀카봉) | 슈피겐 4팀",
+            "thumbnail": "https://i.ytimg.com/vi/4QpR6YuL6WQ/mqdefault.jpg",
+            "date": "2026-06-04",
+            "views": 440,
+            "likes": 8
+        },
+        {
             "id": "0_cjlAYrhbE",
             "title": "유럽 평균을 뛰어넘은 스페인의 의외의 쇼핑 품목 | 글로벌체크인",
             "thumbnail": "https://i.ytimg.com/vi/0_cjlAYrhbE/mqdefault.jpg",
@@ -221,6 +245,14 @@ const metricsData = {
             "likes": 20
         },
         {
+            "id": "jlTUN7-o3zg",
+            "title": "360도 회전 NEW 맥세이프 롱바디 셀카봉✨",
+            "thumbnail": "https://i.ytimg.com/vi/jlTUN7-o3zg/mqdefault.jpg",
+            "date": "2026-04-27",
+            "views": 850,
+            "likes": 8
+        },
+        {
             "id": "sGkR4slN6a4",
             "title": "어서 와, 신입사원은 처음이지? ✨ 신규입사자의 출근 첫날 VLOG",
             "thumbnail": "https://i.ytimg.com/vi/sGkR4slN6a4/mqdefault.jpg",
@@ -237,6 +269,14 @@ const metricsData = {
             "likes": 9
         },
         {
+            "id": "6-FuU67OT94",
+            "title": "🎓슈피겐 X 연세대 ADCUS 서포터즈 발대식 현장🎓",
+            "thumbnail": "https://i.ytimg.com/vi/6-FuU67OT94/mqdefault.jpg",
+            "date": "2026-04-10",
+            "views": 828,
+            "likes": 9
+        },
+        {
             "id": "VCZmySXFMSM",
             "title": "슈피겐 × 연세대 ADCUS 서포터즈 발대식🎉",
             "thumbnail": "https://i.ytimg.com/vi/VCZmySXFMSM/mqdefault.jpg",
@@ -245,12 +285,28 @@ const metricsData = {
             "likes": 11
         },
         {
+            "id": "3DXKZgRSjJU",
+            "title": "S26 울트라 충전기 유목민 탈출! 드디어 종결템 등장 🚀",
+            "thumbnail": "https://i.ytimg.com/vi/3DXKZgRSjJU/mqdefault.jpg",
+            "date": "2026-04-02",
+            "views": 1139,
+            "likes": 7
+        },
+        {
             "id": "dEr5hb1doUM",
             "title": "동남아 시장 TOP 셀러의 필승 전략 3가지🥇",
             "thumbnail": "https://i.ytimg.com/vi/dEr5hb1doUM/mqdefault.jpg",
             "date": "2026-03-30",
             "views": 647,
             "likes": 3
+        },
+        {
+            "id": "EEtJROCg8uY",
+            "title": "르망24시케이스 출전합니다ㅣ슈피겐c11 르망 #갤럭시s26울트라 #삼성닷컴",
+            "thumbnail": "https://i.ytimg.com/vi/EEtJROCg8uY/mqdefault.jpg",
+            "date": "2026-03-27",
+            "views": 2869,
+            "likes": 7
         },
         {
             "id": "J8PdTXo0jMw",
@@ -293,6 +349,30 @@ const metricsData = {
             "likes": 7
         },
         {
+            "id": "HSFAAb3nqUg",
+            "title": "#갤럭시s26울트라 강화유리부터 케이스까지 풀세팅 ㄱㄱ",
+            "thumbnail": "https://i.ytimg.com/vi/HSFAAb3nqUg/mqdefault.jpg",
+            "date": "2026-03-07",
+            "views": 176131,
+            "likes": 927
+        },
+        {
+            "id": "hSpnMAGqWIk",
+            "title": "Qi2 25W 충전되는 S26울트라 테크 감성 케이스 등장 #S26울트라케이스 #제로원",
+            "thumbnail": "https://i.ytimg.com/vi/hSpnMAGqWIk/mqdefault.jpg",
+            "date": "2026-03-06",
+            "views": 6722,
+            "likes": 33
+        },
+        {
+            "id": "OHskK3Tdqfs",
+            "title": "S26시리즈, 근본 화이트에 Qi2 ready 케이스 입혀봄 #갤럭시S26맥세이프케이스 #s26qi2케이스",
+            "thumbnail": "https://i.ytimg.com/vi/OHskK3Tdqfs/mqdefault.jpg",
+            "date": "2026-03-05",
+            "views": 5065,
+            "likes": 28
+        },
+        {
             "id": "i3OqxinrYkg",
             "title": "리더들이 같이 일하고 싶은 사람은?",
             "thumbnail": "https://i.ytimg.com/vi/i3OqxinrYkg/mqdefault.jpg",
@@ -333,12 +413,36 @@ const metricsData = {
             "likes": 25
         },
         {
+            "id": "UH8PtuvVw2o",
+            "title": "S26울트라 맥세이프케이스 실착느낌 #갤럭시S26맥세이프케이스 #qi2ready인증",
+            "thumbnail": "https://i.ytimg.com/vi/UH8PtuvVw2o/mqdefault.jpg",
+            "date": "2026-02-27",
+            "views": 16587,
+            "likes": 55
+        },
+        {
+            "id": "PrNyCNtCt6c",
+            "title": "슈피겐 갤럭시S26 라인업 공개 #Qi2ready인증 #S26맥세이프케이스",
+            "thumbnail": "https://i.ytimg.com/vi/PrNyCNtCt6c/mqdefault.jpg",
+            "date": "2026-02-25",
+            "views": 7204,
+            "likes": 26
+        },
+        {
             "id": "H2DzWsUTlgM",
             "title": "두쫀구 간식 받는 꿀팁 🍬",
             "thumbnail": "https://i.ytimg.com/vi/H2DzWsUTlgM/mqdefault.jpg",
             "date": "2026-02-04",
             "views": 2185,
             "likes": 7
+        },
+        {
+            "id": "duzijMFHbjg",
+            "title": "요즘 SNS에서 자주 보이는 매킨토시 케이스 언박싱",
+            "thumbnail": "https://i.ytimg.com/vi/duzijMFHbjg/mqdefault.jpg",
+            "date": "2026-02-03",
+            "views": 3489,
+            "likes": 27
         },
         {
             "id": "a_T3JJtkRFE",
@@ -363,6 +467,14 @@ const metricsData = {
             "date": "2026-01-05",
             "views": 488,
             "likes": 16
+        },
+        {
+            "id": "hp4IfzEEKJc",
+            "title": "이거 어디까지 들어가는 거예요↗ #맥세이프카드지갑",
+            "thumbnail": "https://i.ytimg.com/vi/hp4IfzEEKJc/mqdefault.jpg",
+            "date": "2026-01-05",
+            "views": 14569,
+            "likes": 82
         },
         {
             "id": "gLCZMTUZTKU",
@@ -535,123 +647,130 @@ const metricsData = {
     ],
     "blog_posts_list": [
         {
+            "id": "1169",
+            "title": "테스트",
+            "category": "LINKEDIN",
+            "date": "2026-06-26",
+            "views": 2
+        },
+        {
             "id": "1168",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - FDI전략기획팀",
             "category": "Culture",
             "date": "2026-06-12",
-            "views": 197
+            "views": 199
         },
         {
             "id": "1167",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 해외사업부문",
             "category": "Culture",
             "date": "2026-06-12",
-            "views": 217
+            "views": 219
         },
         {
             "id": "1166",
             "title": "골프공으로 시장을 설득하는 법",
             "category": "Culture",
             "date": "2026-06-11",
-            "views": 159
+            "views": 161
         },
         {
             "id": "1165",
             "title": "직무 이야기 : 모바일제품개발팀 제품 디자이너",
             "category": "Job",
             "date": "2026-06-11",
-            "views": 220
+            "views": 222
         },
         {
             "id": "1159",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 고객경험전략팀",
             "category": "Culture",
             "date": "2026-05-29",
-            "views": 395
+            "views": 397
         },
         {
             "id": "1158",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 연구개발부문",
             "category": "Culture",
             "date": "2026-05-18",
-            "views": 511
+            "views": 513
         },
         {
             "id": "1155",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 인재개발팀",
             "category": "Culture",
             "date": "2026-05-07",
-            "views": 508
+            "views": 510
         },
         {
             "id": "1153",
             "title": "매일의 충전을 다시 설계하다",
             "category": "Design",
             "date": "2026-04-28",
-            "views": 438
+            "views": 440
         },
         {
             "id": "1151",
             "title": "슈피겐, 기술을 넘어 기억까지 보호하다",
             "category": "Design",
             "date": "2026-04-17",
-            "views": 513
+            "views": 515
         },
         {
             "id": "1148",
             "title": "[Playlist] 우수사원 - 김회섭프로의 워크 키트",
             "category": "People",
             "date": "2026-03-26",
-            "views": 542
+            "views": 544
         },
         {
             "id": "1142",
             "title": "[Brand Insight] 모바일 액세서리 1위를 넘어 골프 시장의 게임 체인저로, '레가토(Legato)'",
             "category": "Culture",
             "date": "2026-03-13",
-            "views": 688
+            "views": 690
         },
         {
             "id": "1141",
             "title": "[Playlist] 우수사원 - 동단비프로의 워크 키트",
             "category": "People",
             "date": "2026-02-23",
-            "views": 827
+            "views": 829
         },
         {
             "id": "1140",
             "title": "[Playlist] 우수사원 - 나아름프로의 워크 키트",
             "category": "People",
             "date": "2026-02-13",
-            "views": 573
+            "views": 575
         },
         {
             "id": "1138",
             "title": "슈피겐코리아 랜선 오피스투어",
             "category": "Culture",
             "date": "2026-02-02",
-            "views": 802
+            "views": 804
         },
         {
             "id": "1137",
             "title": "[Playlist] 우수사원 - 이재승리더의 워크 키트",
             "category": "People",
             "date": "2026-01-29",
-            "views": 601
+            "views": 603
         },
         {
             "id": "1136",
             "title": "인프라관리: 비즈니스 연속성을 만드는 엔지니어",
             "category": "Job",
             "date": "2026-01-20",
-            "views": 515
+            "views": 517
         },
         {
             "id": "1135",
             "title": "26년 시무식 현장",
             "category": "Culture",
             "date": "2026-01-07",
-            "views": 563
+            "views": 565
         }
     ]
 };
