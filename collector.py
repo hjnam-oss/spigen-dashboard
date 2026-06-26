@@ -139,7 +139,7 @@ def get_blog_data():
                     continue
                 title = item.get('subject', '').strip()
                 catname = item.get('catname', 'Culture')
-                views = item.get('count', 0)
+                views = int(item.get('count', 0) or 0)
                 print(f"  블로그 [{post_id}] 조회수: {views} | {title[:30]}...")
                 posts.append({
                     "id": post_id,
