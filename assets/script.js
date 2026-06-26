@@ -78,6 +78,7 @@ function renderDashboard(data, selectedMonth) {
 
         updateCard('ytSubscribers', 'youtube_subscribers');
         updateCard('ytViews', 'youtube_avg_views');
+        updateCard('inFollowers', 'linkedin_followers');
     } else {
         // 히스토리 없는 달은 카드 초기화
         ['ytSubscribers', 'ytViews'].forEach(id => {
@@ -154,5 +155,25 @@ function renderDashboard(data, selectedMonth) {
         });
     } else {
         ytList.innerHTML = '<div style="color: #94a3b8; padding: 1rem;">해당 월에 업로드된 영상이 없습니다.</div>';
+    }
+
+    // LinkedIn 게시물 목록
+    const linkedinList = document.getElementById('linkedinPostList');
+    const filteredLinkedin = (data.linkedin_posts_list || []).filter(p => p.date.startsWith(selectedMonth));
+    linkedinList.innerHTML = '';
+    if (filteredLinkedin.length > 0) {
+        filteredLinkedin.forEach(post => {
+            const li = document.createElement('li');
+            li.innerHTML = `
+                <div>
+                    <a href="${post.url}" target="_blank" class="post-title">${post.content}</a>
+                    <span class="post-meta">${post.date}</span>
+                </div>
+                <div class="post-views">👍 ${post.likes} &nbsp; 🔁 ${post.shares}</div>
+            `;
+            linkedinList.appendChild(li);
+        });
+    } else {
+        linkedinList.innerHTML = '<li style="color: #94a3b8;">해당 월에 게시물이 없습니다.</li>';
     }
 }

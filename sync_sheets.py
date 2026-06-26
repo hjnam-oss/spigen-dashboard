@@ -274,6 +274,20 @@ def main():
         month = int(date.split('-')[1]) if date else 0
         new_rows.append({'date': date, 'row': [month, title, date, '블로그', post.get('category', '')]})
 
+    # LinkedIn 게시물 (2026년만)
+    for post in data.get('linkedin_posts_list', []):
+        if not post.get('date', '').startswith('2026'):
+            continue
+        title = post.get('content', '').strip()
+        date = post.get('date', '')
+        batch_key = ('링크드인', normalize(title))
+        if is_duplicate(title, date, '링크드인') or batch_key in new_rows_keys:
+            print(f"  [중복 건너뜀] {title[:40]} ({date})")
+            continue
+        new_rows_keys.add(batch_key)
+        month = int(date.split('-')[1]) if date else 0
+        new_rows.append({'date': date, 'row': [month, title, date, '링크드인', '']})
+
     sheet_id = get_sheet_id(service)
 
     if not new_rows:

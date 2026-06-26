@@ -11,6 +11,8 @@ load_dotenv()
 YOUTUBE_API_KEY = os.environ.get('YOUTUBE_API_KEY')
 YOUTUBE_CHANNEL_ID = "UCKBxMS12tw6l-CcxBpLOzNw"  # 슈피겐코리아 채용/문화 채널
 BLOG_URL = "https://www.spigenkorea.co.kr/culture/news.php"
+APIFY_TOKEN = os.environ.get('APIFY_TOKEN')
+LINKEDIN_COMPANY_URL = "https://www.linkedin.com/company/spigenkorea/"
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 DATA_FILE = os.path.join(BASE_DIR, "data", "metrics.json")
 
@@ -113,6 +115,73 @@ def get_post_info(post_id, headers):
 
 AJAX_URL = 'https://www.spigenkorea.co.kr/admin/bbs/ajax_list.php'
 
+def get_linkedin_data():
+    """Apify로 LinkedIn 회사 페이지 팔로워 수 및 2026년 게시물 수집"""
+    import time
+    if not APIFY_TOKEN:
+        print("APIFY_TOKEN 없음, LinkedIn 수집 건너뜀")
+        return None
+    try:
+        r = requests.post(
+            'https://api.apify.com/v2/acts/WI0tj4Ieb5Kq458gB/runs',
+            headers={'Authorization': 'Bearer ' + APIFY_TOKEN, 'Content-Type': 'application/json'},
+            json={'companyUrls': [LINKEDIN_COMPANY_URL], 'maxPosts': 100}
+        )
+        run_id = r.json().get('data', {}).get('id', '')
+        if not run_id:
+            return None
+
+        for _ in range(30):
+            time.sleep(5)
+            status = requests.get(
+                'https://api.apify.com/v2/actor-runs/' + run_id,
+                headers={'Authorization': 'Bearer ' + APIFY_TOKEN}
+            ).json().get('data', {}).get('status', '')
+            if status in ['SUCCEEDED', 'FAILED', 'ABORTED']:
+                break
+
+        if status != 'SUCCEEDED':
+            return None
+
+        items = requests.get(
+            'https://api.apify.com/v2/actor-runs/' + run_id + '/dataset/items',
+            headers={'Authorization': 'Bearer ' + APIFY_TOKEN}
+        ).json()
+
+        # 팔로워 수
+        followers = 0
+        if items:
+            info = items[0].get('author', {}).get('info', '')
+            import re
+            m = re.search(r'([\d,]+)\s*follower', info)
+            if m:
+                followers = int(m.group(1).replace(',', ''))
+
+        # 2026년 게시물만 필터링
+        posts = []
+        for item in items:
+            date = item.get('postedAt', {}).get('date', '')[:10]
+            if not date.startswith('2026'):
+                continue
+            content = item.get('content', '').strip()
+            first_line = (content.split('\n')[0] if '\n' in content else content)[:100]
+            posts.append({
+                "id": item.get('id', ''),
+                "url": item.get('linkedinUrl', ''),
+                "content": first_line,
+                "date": date,
+                "likes": item.get('engagement', {}).get('likes', 0),
+                "shares": item.get('engagement', {}).get('shares', 0)
+            })
+
+        posts.sort(key=lambda x: x['date'], reverse=True)
+        print(f"  LinkedIn 팔로워: {followers}, 게시물: {len(posts)}개")
+        return {"followers": followers, "posts": posts}
+
+    except Exception as e:
+        print(f"LinkedIn 수집 오류: {e}")
+        return None
+
 def get_blog_data():
     """AJAX만 사용 — 개별 페이지 방문 없음 (조회수 오염 방지)"""
     try:
@@ -162,9 +231,11 @@ def get_blog_data():
 
 def main():
     print("데이터 수집 시작...")
+    linkedin_data = get_linkedin_data()
     
     yt_data = get_youtube_channel_data()
     blog_data = get_blog_data()
+    # linkedin_data는 main() 상단에서 먼저 수집
     
     # 기존 데이터 로드 (data.js 우선, 없으면 metrics.json)
     data = {"history": [], "recent_blog_posts": [], "recent_youtube_videos": []}
@@ -188,11 +259,14 @@ def main():
     today = datetime.now(pytz.timezone('Asia/Seoul')).strftime('%Y-%m-%d')
     current_time = datetime.now(pytz.timezone('Asia/Seoul')).strftime('%Y-%m-%d %H:%M:%S KST')
     
-    # 이전 데이터 (LinkedIn 팔로워 유지를 위해)
-    last_linkedin = 0
-    if data['history']:
+    # LinkedIn 팔로워 (Apify로 수집된 값 우선, 없으면 이전 값 유지)
+    if linkedin_data and linkedin_data.get('followers'):
+        last_linkedin = linkedin_data['followers']
+    elif data['history']:
         last_linkedin = data['history'][-1].get('linkedin_followers', 0)
-        
+    else:
+        last_linkedin = 0
+
     yt_views = yt_data['views'] if yt_data else 0
     yt_avg_views = yt_data['month_avg_views'] if yt_data else 0
 
@@ -203,7 +277,7 @@ def main():
         "youtube_views": yt_views,
         "youtube_avg_views": yt_avg_views,
         "blog_total_posts": blog_data['total_posts'] if blog_data else 0,
-        "linkedin_followers": last_linkedin # 수동 입력용으로 이전 값 유지
+        "linkedin_followers": last_linkedin
     }
     
     # 오늘 데이터가 이미 있으면 덮어쓰기, 없으면 추가
@@ -220,10 +294,14 @@ def main():
         # 블로그 게시물 교체 방식 (삭제된 글 자동 반영)
         data['blog_posts_list'] = sorted(blog_data['posts'], key=lambda x: x['date'], reverse=True)
         
-    # 유튜브 영상 목록: 채널에서 새로 가져온 영상으로 교체 (잘못된 채널 영상 방지)
+    # 유튜브 영상 목록: 채널에서 새로 가져온 영상으로 교체
     if yt_data and yt_data.get('month_videos'):
         new_videos = sorted(yt_data['month_videos'], key=lambda x: x['date'], reverse=True)
         data['youtube_videos_list'] = new_videos
+
+    # LinkedIn 게시물 교체
+    if linkedin_data and linkedin_data.get('posts'):
+        data['linkedin_posts_list'] = linkedin_data['posts']
     
     data['last_updated'] = current_time
     

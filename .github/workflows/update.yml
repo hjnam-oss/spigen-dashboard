@@ -30,6 +30,7 @@ jobs:
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
         run: python collector.py
 
       - name: Sync to Google Sheets
