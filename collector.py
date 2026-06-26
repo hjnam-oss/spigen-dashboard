@@ -218,9 +218,19 @@ def main():
     yt_data = get_youtube_channel_data()
     blog_data = get_blog_data()
     
-    # 기존 데이터 로드
+    # 기존 데이터 로드 (data.js 우선, 없으면 metrics.json)
     data = {"history": [], "recent_blog_posts": [], "recent_youtube_videos": []}
-    if os.path.exists(DATA_FILE):
+    DATA_JS_FILE = os.path.join(BASE_DIR, 'data', 'data.js')
+    if os.path.exists(DATA_JS_FILE):
+        try:
+            with open(DATA_JS_FILE, 'r', encoding='utf-8') as f:
+                content = f.read()
+            import re as _re
+            json_str = _re.sub(r'^const metricsData\s*=\s*', '', content.strip()).rstrip(';').strip()
+            data = json.loads(json_str)
+        except:
+            pass
+    elif os.path.exists(DATA_FILE):
         with open(DATA_FILE, 'r', encoding='utf-8') as f:
             try:
                 data = json.load(f)

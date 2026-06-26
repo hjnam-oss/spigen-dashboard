@@ -108,12 +108,47 @@ def main():
         '2026-06': '2026-06-25',
     }
 
+    # 월별 총 조회수 (Analytics API)
+    monthly_total_views = {m['month']: m['views'] for m in monthly}
+
+    # 월별 평균 조회수: 해당 월 업로드 영상들의 현재 조회수 평균 (youtube_videos_list 기반)
+    monthly_avg_views = {}
+    monthly_videos_by_month = {}
+    for v in data.get('youtube_videos_list', []):
+        month = v.get('date', '')[:7]
+        if month and month.startswith('2026'):
+            monthly_videos_by_month.setdefault(month, []).append(v.get('views', 0))
+
+    for month, views_list in monthly_videos_by_month.items():
+        monthly_avg_views[month] = round(sum(views_list) / len(views_list)) if views_list else 0
+
+    print("\n월별 평균 조회수 (업로드 영상 기준):")
+    for month, avg in sorted(monthly_avg_views.items()):
+        print(f"  {month}: 평균 {avg:,}회 (영상 {len(monthly_videos_by_month[month])}개)")
+
     history_map = {h['date']: h for h in data['history']}
     for month, subs in monthly_end_subs.items():
         last_day = month_to_lastday.get(month)
-        if last_day and last_day in history_map:
+        if not last_day:
+            continue
+        avg_views = monthly_avg_views.get(month, 0)
+        avg_views = monthly_avg_views.get(month, 0)
+        total_views = monthly_total_views.get(month, 0)  # Analytics 기반 총 조회수
+        if last_day in history_map:
             history_map[last_day]['youtube_subscribers'] = subs
-            print(f"  업데이트: {last_day} → 구독자 {subs}")
+            history_map[last_day]['youtube_views'] = total_views
+            history_map[last_day]['youtube_avg_views'] = avg_views
+            print(f"  업데이트: {last_day} → 구독자 {subs}, 총조회수 {total_views:,}, 평균조회수 {avg_views:,}")
+        else:
+            history_map[last_day] = {
+                "date": last_day,
+                "youtube_subscribers": subs,
+                "youtube_views": total_views,
+                "youtube_avg_views": avg_views,
+                "blog_total_posts": 0,
+                "linkedin_followers": 0
+            }
+            print(f"  생성: {last_day} → 구독자 {subs}, 총조회수 {total_views:,}, 평균조회수 {avg_views:,}")
 
     data['history'] = sorted(history_map.values(), key=lambda x: x['date'])
 

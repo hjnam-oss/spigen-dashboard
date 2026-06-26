@@ -2,6 +2,46 @@ const metricsData = {
     "last_updated": "2026-06-26 10:04:20 KST",
     "history": [
         {
+            "date": "2026-01-31",
+            "youtube_subscribers": 211,
+            "youtube_views": 1774,
+            "youtube_avg_views": 714,
+            "blog_total_posts": 0,
+            "linkedin_followers": 0
+        },
+        {
+            "date": "2026-02-28",
+            "youtube_subscribers": 216,
+            "youtube_views": 8595,
+            "youtube_avg_views": 1270,
+            "blog_total_posts": 0,
+            "linkedin_followers": 0
+        },
+        {
+            "date": "2026-03-31",
+            "youtube_subscribers": 257,
+            "youtube_views": 9396,
+            "youtube_avg_views": 1053,
+            "blog_total_posts": 0,
+            "linkedin_followers": 0
+        },
+        {
+            "date": "2026-04-30",
+            "youtube_subscribers": 264,
+            "youtube_views": 8425,
+            "youtube_avg_views": 1038,
+            "blog_total_posts": 0,
+            "linkedin_followers": 0
+        },
+        {
+            "date": "2026-05-31",
+            "youtube_subscribers": 273,
+            "youtube_views": 5132,
+            "youtube_avg_views": 1153,
+            "blog_total_posts": 0,
+            "linkedin_followers": 0
+        },
+        {
             "date": "2026-06-21",
             "youtube_subscribers": 145000,
             "youtube_views": 15000000,
@@ -18,9 +58,9 @@ const metricsData = {
         },
         {
             "date": "2026-06-25",
-            "youtube_subscribers": 273,
-            "youtube_views": 84460,
-            "youtube_avg_views": 854,
+            "youtube_subscribers": 272,
+            "youtube_views": 5789,
+            "youtube_avg_views": 860,
             "blog_total_posts": 17,
             "linkedin_followers": 25100
         },

@@ -49,13 +49,14 @@ function renderDashboard(data, selectedMonth) {
     // 구독자/조회수 카드 — history 있을 때만
     if (filteredHistory.length > 0) {
         const latest = filteredHistory[filteredHistory.length - 1];
-        let previous = latest;
-        if (filteredHistory.length > 1) {
-            previous = filteredHistory[filteredHistory.length - 2];
-        } else {
-            const latestIdx = data.history.findIndex(item => item.date === latest.date);
-            if (latestIdx > 0) previous = data.history[latestIdx - 1];
-        }
+
+        // 전월 마지막 항목을 previous로 사용
+        const prevMonth = selectedMonth.slice(0, 4) + '-' + String(parseInt(selectedMonth.slice(5, 7)) - 1).padStart(2, '0');
+        const prevMonthHistory = data.history.filter(item => item.date.startsWith(prevMonth));
+        const previous = prevMonthHistory.length > 0
+            ? prevMonthHistory[prevMonthHistory.length - 1]
+            : latest;
+
 
         const updateCard = (id, value) => {
             const el = document.getElementById(id);
@@ -77,6 +78,13 @@ function renderDashboard(data, selectedMonth) {
 
         updateCard('ytSubscribers', 'youtube_subscribers');
         updateCard('ytViews', 'youtube_avg_views');
+    } else {
+        // 히스토리 없는 달은 카드 초기화
+        ['ytSubscribers', 'ytViews'].forEach(id => {
+            document.getElementById(id).textContent = '-';
+            document.getElementById(`${id}Trend`).textContent = '데이터 없음';
+            document.getElementById(`${id}Trend`).style.color = '#94a3b8';
+        });
     }
 
     // 블로그 카드 — 항상 렌더링
