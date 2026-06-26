@@ -32,6 +32,14 @@ jobs:
           SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
         run: python collector.py
 
+      - name: Sync to Google Sheets
+        env:
+          SPREADSHEET_ID: ${{ secrets.SPREADSHEET_ID }}
+          SHEETS_REFRESH_TOKEN: ${{ secrets.SHEETS_REFRESH_TOKEN }}
+          SHEETS_CLIENT_ID: ${{ secrets.SHEETS_CLIENT_ID }}
+          SHEETS_CLIENT_SECRET: ${{ secrets.SHEETS_CLIENT_SECRET }}
+        run: python sync_sheets.py
+
       - name: Commit and push if changed
         run: |
           git config --global user.name 'github-actions[bot]'

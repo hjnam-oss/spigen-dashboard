@@ -22,6 +22,27 @@ DATA_START_ROW = 9  # 8행이 헤더, 9행부터 데이터
 
 
 def get_sheets_service():
+    from google.oauth2.credentials import Credentials
+    from google.auth.transport.requests import Request
+
+    # GitHub Actions 환경: 환경변수로 인증
+    refresh_token = os.environ.get('SHEETS_REFRESH_TOKEN')
+    client_id = os.environ.get('SHEETS_CLIENT_ID')
+    client_secret = os.environ.get('SHEETS_CLIENT_SECRET')
+
+    if refresh_token and client_id and client_secret:
+        credentials = Credentials(
+            token=None,
+            refresh_token=refresh_token,
+            token_uri='https://oauth2.googleapis.com/token',
+            client_id=client_id,
+            client_secret=client_secret,
+            scopes=SCOPES
+        )
+        credentials.refresh(Request())
+        return build('sheets', 'v4', credentials=credentials)
+
+    # 로컬 환경: token_sheets.json 사용
     credentials = None
     if os.path.exists(TOKEN_FILE):
         credentials = Credentials.from_authorized_user_file(TOKEN_FILE, SCOPES)
@@ -79,16 +100,79 @@ def get_last_row(service):
     return DATA_START_ROW + len(rows) - 1
 
 
+def get_sheet_id(service):
+    """시트 GID 조회"""
+    spreadsheet = service.spreadsheets().get(spreadsheetId=SPREADSHEET_ID).execute()
+    for sheet in spreadsheet['sheets']:
+        if sheet['properties']['title'] == SHEET_NAME:
+            return sheet['properties']['sheetId']
+    return 0
+
+
 def append_rows(service, rows):
-    """새 행 추가"""
+    """새 행 추가 + B열 수식 + 서식 복사"""
+    last_row = get_last_row(service)
+    new_start = last_row + 1
+    sheet_id = get_sheet_id(service)
+
+    # 1. B열을 수식으로 대체 (month → =MONTH(D행번호))
+    formatted_rows = []
+    for i, row in enumerate(rows):
+        row_num = new_start + i
+        new_row = [f'=MONTH(D{row_num})'] + list(row)[1:]  # B열만 수식으로
+        formatted_rows.append(new_row)
+
+    # 2. 데이터 추가
     range_name = f"'{SHEET_NAME}'!B:G"
-    body = {'values': rows}
     service.spreadsheets().values().append(
         spreadsheetId=SPREADSHEET_ID,
         range=range_name,
         valueInputOption='USER_ENTERED',
         insertDataOption='INSERT_ROWS',
-        body=body
+        body={'values': formatted_rows}
+    ).execute()
+
+    new_count = len(rows)
+    total_last_row = new_start - 1 + new_count
+
+    service.spreadsheets().batchUpdate(
+        spreadsheetId=SPREADSHEET_ID,
+        body={'requests': [
+            # 3. 기존 서식 복사 (첫 번째 데이터 행 → 새 행들)
+            {
+                'copyPaste': {
+                    'source': {
+                        'sheetId': sheet_id,
+                        'startRowIndex': DATA_START_ROW - 1,
+                        'endRowIndex': DATA_START_ROW,
+                        'startColumnIndex': 1,
+                        'endColumnIndex': 7
+                    },
+                    'destination': {
+                        'sheetId': sheet_id,
+                        'startRowIndex': new_start - 1,
+                        'endRowIndex': total_last_row,
+                        'startColumnIndex': 1,
+                        'endColumnIndex': 7
+                    },
+                    'pasteType': 'PASTE_FORMAT'
+                }
+            },
+            # 4. 필터 범위 확장 (새 행 포함)
+            {
+                'setBasicFilter': {
+                    'filter': {
+                        'range': {
+                            'sheetId': sheet_id,
+                            'startRowIndex': DATA_START_ROW - 2,  # 헤더행 포함
+                            'endRowIndex': total_last_row,
+                            'startColumnIndex': 1,
+                            'endColumnIndex': 7
+                        }
+                    }
+                }
+            }
+        ]}
     ).execute()
 
 
