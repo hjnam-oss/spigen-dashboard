@@ -126,19 +126,27 @@ def main():
     for month, avg in sorted(monthly_avg_views.items()):
         print(f"  {month}: 평균 {avg:,}회 (영상 {len(monthly_videos_by_month[month])}개)")
 
+    # 현재 LinkedIn 팔로워 수 (가장 최근 history에서 가져오기)
+    current_linkedin = 0
+    for h in sorted(data['history'], key=lambda x: x['date'], reverse=True):
+        if h.get('linkedin_followers', 0) > 0:
+            current_linkedin = h['linkedin_followers']
+            break
+
     history_map = {h['date']: h for h in data['history']}
     for month, subs in monthly_end_subs.items():
         last_day = month_to_lastday.get(month)
         if not last_day:
             continue
         avg_views = monthly_avg_views.get(month, 0)
-        avg_views = monthly_avg_views.get(month, 0)
-        total_views = monthly_total_views.get(month, 0)  # Analytics 기반 총 조회수
+        total_views = monthly_total_views.get(month, 0)
         if last_day in history_map:
             history_map[last_day]['youtube_subscribers'] = subs
             history_map[last_day]['youtube_views'] = total_views
             history_map[last_day]['youtube_avg_views'] = avg_views
-            print(f"  업데이트: {last_day} → 구독자 {subs}, 총조회수 {total_views:,}, 평균조회수 {avg_views:,}")
+            if history_map[last_day].get('linkedin_followers', 0) == 0:
+                history_map[last_day]['linkedin_followers'] = current_linkedin
+            print(f"  업데이트: {last_day} → 구독자 {subs}, 평균조회수 {avg_views:,}")
         else:
             history_map[last_day] = {
                 "date": last_day,
@@ -146,9 +154,9 @@ def main():
                 "youtube_views": total_views,
                 "youtube_avg_views": avg_views,
                 "blog_total_posts": 0,
-                "linkedin_followers": 0
+                "linkedin_followers": current_linkedin
             }
-            print(f"  생성: {last_day} → 구독자 {subs}, 총조회수 {total_views:,}, 평균조회수 {avg_views:,}")
+            print(f"  생성: {last_day} → 구독자 {subs}, 평균조회수 {avg_views:,}, LinkedIn {current_linkedin}")
 
     data['history'] = sorted(history_map.values(), key=lambda x: x['date'])
 

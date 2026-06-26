@@ -157,19 +157,24 @@ function renderDashboard(data, selectedMonth) {
         ytList.innerHTML = '<div style="color: #94a3b8; padding: 1rem;">해당 월에 업로드된 영상이 없습니다.</div>';
     }
 
+    // LinkedIn 게시물 카드
+    const monthLinkedin = (data.linkedin_posts_list || []).filter(p => p.date.startsWith(selectedMonth));
+    document.getElementById('inPosts').textContent = monthLinkedin.length;
+    document.getElementById('inPostsTrend').textContent = `${selectedMonth.split('-')[1].replace(/^0/, '')}월 게시물`;
+    document.getElementById('inPostsTrend').style.color = '#94a3b8';
+
     // LinkedIn 게시물 목록
     const linkedinList = document.getElementById('linkedinPostList');
-    const filteredLinkedin = (data.linkedin_posts_list || []).filter(p => p.date.startsWith(selectedMonth));
     linkedinList.innerHTML = '';
-    if (filteredLinkedin.length > 0) {
-        filteredLinkedin.forEach(post => {
+    if (monthLinkedin.length > 0) {
+        monthLinkedin.forEach(post => {
             const li = document.createElement('li');
             li.innerHTML = `
                 <div>
                     <a href="${post.url}" target="_blank" class="post-title">${post.content}</a>
                     <span class="post-meta">${post.date}</span>
                 </div>
-                <div class="post-views">👍 ${post.likes} &nbsp; 🔁 ${post.shares}</div>
+                <div class="post-views">👍 ${post.likes} 🔁 ${post.shares}</div>
             `;
             linkedinList.appendChild(li);
         });

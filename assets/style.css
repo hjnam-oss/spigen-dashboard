@@ -124,6 +124,9 @@ header {
 #linkedinPostList li {
     padding: 1rem 0;
     border-bottom: 1px solid var(--glass-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 #linkedinPostList li:last-child {
