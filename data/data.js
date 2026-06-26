@@ -1,5 +1,5 @@
 const metricsData = {
-    "last_updated": "2026-06-26 14:57:28 KST",
+    "last_updated": "2026-06-26 15:06:14 KST",
     "history": [
         {
             "date": "2026-01-31",
@@ -455,7 +455,7 @@ const metricsData = {
             "title": "[Brand Insight] 모바일 액세서리 1위를 넘어 골프 시장의 게임 체인저로, &#039;레가토(Legato)&#039;",
             "category": "Culture",
             "date": "2026-03-13",
-            "views": "704"
+            "views": "705"
         },
         {
             "id": "1141",
