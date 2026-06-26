@@ -1,5 +1,5 @@
 const metricsData = {
-    "last_updated": "2026-06-26 15:06:14 KST",
+    "last_updated": "2026-06-26 15:14:02 KST",
     "history": [
         {
             "date": "2026-01-31",
@@ -68,7 +68,7 @@ const metricsData = {
             "date": "2026-06-26",
             "youtube_subscribers": 274,
             "youtube_views": 84480,
-            "youtube_avg_views": 859,
+            "youtube_avg_views": 860,
             "blog_total_posts": 233,
             "linkedin_followers": 25100
         }
@@ -145,7 +145,7 @@ const metricsData = {
             "title": "AI Native 조직은 신규입사자 워크숍에서 어떤 걸 할까? | 2026 슈피겐코리아 신규입사자 워크숍",
             "thumbnail": "https://i.ytimg.com/vi/7r_xjnTnBGQ/mqdefault.jpg",
             "date": "2026-06-22",
-            "views": 1880,
+            "views": 1882,
             "likes": 9
         },
         {
@@ -193,7 +193,7 @@ const metricsData = {
             "title": "싱가포르 1,2위 플랫폼의 소름 돋는 공략 차이 | 글로벌체크인",
             "thumbnail": "https://i.ytimg.com/vi/insr1zWLRxI/mqdefault.jpg",
             "date": "2026-04-29",
-            "views": 1611,
+            "views": 1612,
             "likes": 10
         },
         {
@@ -225,7 +225,7 @@ const metricsData = {
             "title": "어서 와, 신입사원은 처음이지? ✨ 신규입사자의 출근 첫날 VLOG",
             "thumbnail": "https://i.ytimg.com/vi/sGkR4slN6a4/mqdefault.jpg",
             "date": "2026-04-21",
-            "views": 469,
+            "views": 472,
             "likes": 12
         },
         {
@@ -249,7 +249,7 @@ const metricsData = {
             "title": "동남아 시장 TOP 셀러의 필승 전략 3가지🥇",
             "thumbnail": "https://i.ytimg.com/vi/dEr5hb1doUM/mqdefault.jpg",
             "date": "2026-03-30",
-            "views": 647,
+            "views": 648,
             "likes": 3
         },
         {
@@ -281,7 +281,7 @@ const metricsData = {
             "title": "전 세계 50개국 시장을 장악한 글로벌 전략가들🔥ㅣ슈피겐코리아의 해외전략사업부를 소개합니다",
             "thumbnail": "https://i.ytimg.com/vi/bOcMaDLEsoE/mqdefault.jpg",
             "date": "2026-03-13",
-            "views": 771,
+            "views": 772,
             "likes": 20
         },
         {
@@ -345,7 +345,7 @@ const metricsData = {
             "title": "아마존 베스트셀러 기업의 사옥은 어떻게 생겼을까?👀ㅣ슈피겐코리아 랜선 오피스투어🚩",
             "thumbnail": "https://i.ytimg.com/vi/a_T3JJtkRFE/mqdefault.jpg",
             "date": "2026-01-30",
-            "views": 1422,
+            "views": 1424,
             "likes": 7
         },
         {
@@ -361,25 +361,11 @@ const metricsData = {
             "title": "슈피겐코리아가 만들어가는 '일하는 방식' - 회계 RPA 자동화 사례",
             "thumbnail": "https://i.ytimg.com/vi/XteRE-5ZB6c/mqdefault.jpg",
             "date": "2026-01-05",
-            "views": 488,
+            "views": 489,
             "likes": 16
         }
     ],
     "blog_posts_list": [
-        {
-            "id": "1169",
-            "title": "테스트",
-            "category": "LINKEDIN",
-            "date": "2026-06-26",
-            "views": 2
-        },
-        {
-            "id": "1172",
-            "title": "테스트",
-            "category": "Culture",
-            "date": "2026-06-26",
-            "views": 2
-        },
         {
             "id": "1168",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - FDI전략기획팀",
