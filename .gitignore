@@ -1,0 +1,22 @@
+# 인증 정보
+client_secrets.json.json
+token.json
+token_sheets.json
+
+# 설정 파일 (config.example.py/js 참고해서 직접 생성)
+config.py
+assets/config.js
+
+# 테스트 및 개발용 임시 파일
+test_*.py
+check_blog.py
+check_result.py
+debug_blog.py
+rebuild_data_js.py
+
+# 내부 데이터 (data.js만 공개)
+data/metrics.json
+
+# Python 캐시
+__pycache__/
+*.pyc

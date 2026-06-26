@@ -1,0 +1,3 @@
+const CONFIG = {
+    YT_API_KEY: 'YOUR_YOUTUBE_DATA_API_KEY'
+};

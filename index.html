@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>슈피겐코리아 채널 모니터링</title>
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header>
+            <div class="logo">Spigen Dashboard</div>
+            <div class="header-controls" style="display: flex; gap: 1rem; align-items: center;">
+                <select id="monthSelector" style="background: var(--glass-bg); color: var(--text-color); border: 1px solid var(--glass-border); padding: 0.5rem; border-radius: 0.5rem; font-family: Pretendard, sans-serif; cursor: pointer;">
+                </select>
+                <div class="last-updated" id="lastUpdated">업데이트 중...</div>
+            </div>
+        </header>
+
+        <main>
+            <!-- Summary Cards: 6열 (YouTube 2 + Blog 2 + LinkedIn 2) -->
+            <section class="cards-grid">
+                <div class="card glass">
+                    <h3>YouTube 구독자</h3>
+                    <div class="value" id="ytSubscribers">-</div>
+                    <div class="trend" id="ytSubscribersTrend">데이터 로드 중...</div>
+                </div>
+                <div class="card glass">
+                    <h3>YouTube 평균 조회수</h3>
+                    <div class="value" id="ytViews">-</div>
+                    <div class="trend" id="ytViewsTrend">-</div>
+                </div>
+                <div class="card glass">
+                    <h3>블로그 게시글</h3>
+                    <div class="value" id="blogTotalPosts">-</div>
+                    <div class="trend" id="blogTotalPostsTrend">-</div>
+                </div>
+                <div class="card glass">
+                    <h3>블로그 평균 조회수</h3>
+                    <div class="value" id="blogAvgViews">-</div>
+                    <div class="trend" id="blogAvgViewsTrend">-</div>
+                </div>
+                <div class="card glass">
+                    <h3>LinkedIn 팔로워</h3>
+                    <div class="value" id="inFollowers">-</div>
+                    <div class="trend" id="inFollowersTrend">-</div>
+                </div>
+                <div class="card glass">
+                    <h3>LinkedIn 게시물</h3>
+                    <div class="value" id="inPosts">-</div>
+                    <div class="trend" id="inPostsTrend">-</div>
+                </div>
+            </section>
+
+            <!-- Lists: YouTube / Blog / LinkedIn -->
+            <div class="content-grid">
+                <div class="recent-videos glass">
+                    <h3>최근 YouTube 영상</h3>
+                    <div class="video-grid" id="youtubeVideoList">
+                        데이터 로드 중...
+                    </div>
+                </div>
+
+                <div class="recent-posts glass">
+                    <h3>최신 블로그 게시물</h3>
+                    <ul id="blogPostList">
+                        <li>데이터 로드 중...</li>
+                    </ul>
+                </div>
+
+                <div class="recent-linkedin glass">
+                    <h3>최신 LinkedIn 게시물</h3>
+                    <ul id="linkedinPostList">
+                        <li style="color: #94a3b8;">준비 중</li>
+                    </ul>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="assets/config.js"></script>
+    <script src="data/data.js"></script>
+    <script src="assets/script.js"></script>
+</body>
+</html>
