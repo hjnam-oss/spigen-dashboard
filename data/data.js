@@ -1,5 +1,5 @@
 const metricsData = {
-    "last_updated": "2026-06-26 14:02:16 KST",
+    "last_updated": "2026-06-26 14:18:07 KST",
     "history": [
         {
             "date": "2026-01-31",
@@ -69,7 +69,7 @@ const metricsData = {
             "youtube_subscribers": 274,
             "youtube_views": 84480,
             "youtube_avg_views": 859,
-            "blog_total_posts": 17,
+            "blog_total_posts": 0,
             "linkedin_followers": 25100
         }
     ],
