@@ -1,5 +1,5 @@
 const metricsData = {
-    "last_updated": "2026-06-26 14:18:07 KST",
+    "last_updated": "2026-06-26 14:27:34 KST",
     "history": [
         {
             "date": "2026-01-31",
@@ -69,7 +69,7 @@ const metricsData = {
             "youtube_subscribers": 274,
             "youtube_views": 84480,
             "youtube_avg_views": 859,
-            "blog_total_posts": 0,
+            "blog_total_posts": 18,
             "linkedin_followers": 25100
         }
     ],
@@ -374,123 +374,130 @@ const metricsData = {
             "views": 2
         },
         {
+            "id": "1172",
+            "title": "테스트",
+            "category": "Culture",
+            "date": "2026-06-26",
+            "views": 2
+        },
+        {
             "id": "1168",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - FDI전략기획팀",
             "category": "Culture",
             "date": "2026-06-12",
-            "views": 207
+            "views": 209
         },
         {
             "id": "1167",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 해외사업부문",
             "category": "Culture",
             "date": "2026-06-12",
-            "views": 229
+            "views": 231
         },
         {
             "id": "1166",
             "title": "골프공으로 시장을 설득하는 법",
             "category": "Culture",
             "date": "2026-06-11",
-            "views": 169
+            "views": 171
         },
         {
             "id": "1165",
             "title": "직무 이야기 : 모바일제품개발팀 제품 디자이너",
             "category": "Job",
             "date": "2026-06-11",
-            "views": 233
+            "views": 236
         },
         {
             "id": "1159",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 고객경험전략팀",
             "category": "Culture",
             "date": "2026-05-29",
-            "views": 406
+            "views": 408
         },
         {
             "id": "1158",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 연구개발부문",
             "category": "Culture",
             "date": "2026-05-18",
-            "views": 522
+            "views": 524
         },
         {
             "id": "1155",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 인재개발팀",
             "category": "Culture",
             "date": "2026-05-07",
-            "views": 520
+            "views": 523
         },
         {
             "id": "1153",
             "title": "매일의 충전을 다시 설계하다",
             "category": "Design",
             "date": "2026-04-28",
-            "views": 451
+            "views": 453
         },
         {
             "id": "1151",
             "title": "슈피겐, 기술을 넘어 기억까지 보호하다",
             "category": "Design",
             "date": "2026-04-17",
-            "views": 525
+            "views": 527
         },
         {
             "id": "1148",
             "title": "[Playlist] 우수사원 - 김회섭프로의 워크 키트",
             "category": "People",
             "date": "2026-03-26",
-            "views": 551
+            "views": 552
         },
         {
             "id": "1142",
             "title": "[Brand Insight] 모바일 액세서리 1위를 넘어 골프 시장의 게임 체인저로, '레가토(Legato)'",
             "category": "Culture",
             "date": "2026-03-13",
-            "views": 700
+            "views": 701
         },
         {
             "id": "1141",
             "title": "[Playlist] 우수사원 - 동단비프로의 워크 키트",
             "category": "People",
             "date": "2026-02-23",
-            "views": 835
+            "views": 837
         },
         {
             "id": "1140",
             "title": "[Playlist] 우수사원 - 나아름프로의 워크 키트",
             "category": "People",
             "date": "2026-02-13",
-            "views": 581
+            "views": 582
         },
         {
             "id": "1138",
             "title": "슈피겐코리아 랜선 오피스투어",
             "category": "Culture",
             "date": "2026-02-02",
-            "views": 811
+            "views": 812
         },
         {
             "id": "1137",
             "title": "[Playlist] 우수사원 - 이재승리더의 워크 키트",
             "category": "People",
             "date": "2026-01-29",
-            "views": 610
+            "views": 611
         },
         {
             "id": "1136",
             "title": "인프라관리: 비즈니스 연속성을 만드는 엔지니어",
             "category": "Job",
             "date": "2026-01-20",
-            "views": 523
+            "views": 524
         },
         {
             "id": "1135",
             "title": "26년 시무식 현장",
             "category": "Culture",
             "date": "2026-01-07",
-            "views": 571
+            "views": 572
         }
     ]
 };
