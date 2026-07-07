@@ -12,9 +12,26 @@
     <div class="dashboard-container">
         <header>
             <div class="logo">Spigen Dashboard</div>
-            <div class="header-controls" style="display: flex; gap: 1rem; align-items: center;">
-                <select id="monthSelector" style="background: var(--glass-bg); color: var(--text-color); border: 1px solid var(--glass-border); padding: 0.5rem; border-radius: 0.5rem; font-family: Pretendard, sans-serif; cursor: pointer;">
-                </select>
+            <div class="header-controls" style="display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap;">
+                <select id="monthSelector" style="background: var(--glass-bg); color: var(--text-color); border: 1px solid var(--glass-border); padding: 0.5rem; border-radius: 0.5rem; font-family: Pretendard, sans-serif; cursor: pointer;"></select>
+                <div style="position: relative;">
+                <button id="dateRangeToggle" class="date-btn-toggle">기간 선택 ▾</button>
+                <div class="date-range-picker" id="dateRangePicker">
+                    <div class="date-dropdowns">
+                        <select id="fromYear" class="date-select"></select>
+                        <select id="fromMonth" class="date-select"></select>
+                        <select id="fromDay" class="date-select"></select>
+                    </div>
+                    <span class="date-range-sep">~</span>
+                    <div class="date-dropdowns">
+                        <select id="toYear" class="date-select"></select>
+                        <select id="toMonth" class="date-select"></select>
+                        <select id="toDay" class="date-select"></select>
+                    </div>
+                    <button id="dateRangeBtn" class="date-btn-apply">적용</button>
+                    <button id="dateRangeReset" class="date-btn-reset">초기화</button>
+                </div>
+                </div>
                 <div class="last-updated" id="lastUpdated">업데이트 중...</div>
             </div>
         </header>
@@ -57,7 +74,7 @@
             <!-- Lists: YouTube / Blog / LinkedIn -->
             <div class="content-grid">
                 <div class="recent-videos glass">
-                    <h3>최근 YouTube 영상</h3>
+                    <h3>최근 YouTube 영상 <span id="ytVideosCount" class="count-badge"></span></h3>
                     <div class="video-grid" id="youtubeVideoList">
                         데이터 로드 중...
                     </div>
