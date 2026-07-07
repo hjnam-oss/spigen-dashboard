@@ -7,12 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('lastUpdated').textContent = `최근 업데이트: ${data.last_updated}`;
 
         // 2026년 데이터만 필터링
-        data.blog_posts_list = (data.blog_posts_list || []).filter(p => p.date.startsWith('2026'));
-        data.youtube_videos_list = (data.youtube_videos_list || []).filter(v => v.date.startsWith('2026'));
+        data.blog_posts_list = (data.blog_posts_list || []).filter(p => p.date >= '2026');
+        data.youtube_videos_list = (data.youtube_videos_list || []).filter(v => v.date >= '2026');
 
-        // 월 목록 추출 (2026년만)
+        // 월 목록 추출 (2026년 이후)
         const allMonths = new Set();
-        (data.history || []).filter(h => h.date.startsWith('2026')).forEach(item => allMonths.add(item.date.substring(0, 7)));
+        (data.history || []).filter(h => h.date >= '2026').forEach(item => allMonths.add(item.date.substring(0, 7)));
         (data.blog_posts_list || []).forEach(p => allMonths.add(p.date.substring(0, 7)));
         (data.youtube_videos_list || []).forEach(v => allMonths.add(v.date.substring(0, 7)));
         const months = [...allMonths].sort().reverse();
