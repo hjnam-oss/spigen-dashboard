@@ -27,6 +27,96 @@ document.addEventListener('DOMContentLoaded', () => {
             monthSelector.appendChild(option);
         });
 
+        // 추이 패널
+        const trendPanel = document.getElementById('trendPanel');
+        let trendChart = null;
+
+        function openTrendChart(type, cfg = {}) {
+            currentChartType = type;
+            currentChartCfg = cfg;
+            trendPanel.classList.add('open');
+            if (trendChart) { trendChart.destroy(); trendChart = null; }
+            trendChart = renderTrendChart(buildChartData(data, type, cfg, getChartRange()));
+        }
+
+        // 차트 기간 드롭다운 초기화
+        let currentChartType = 'default';
+        let currentChartCfg = {};
+
+        const allHistoryMonths = [...new Set(
+            (data.history || []).filter(h => h.date >= '2026').map(h => h.date.slice(0, 7))
+        )].sort();
+
+        function populateChartMonths() {
+            ['chartFromMonth', 'chartToMonth'].forEach(id => {
+                const sel = document.getElementById(id);
+                sel.innerHTML = '';
+                allHistoryMonths.forEach(m => {
+                    const opt = document.createElement('option');
+                    opt.value = m;
+                    opt.textContent = `${parseInt(m.split('-')[1])}월`;
+                    sel.appendChild(opt);
+                });
+            });
+            document.getElementById('chartFromMonth').value = allHistoryMonths[0];
+            document.getElementById('chartToMonth').value = allHistoryMonths[allHistoryMonths.length - 1];
+        }
+        populateChartMonths();
+
+        function getChartRange() {
+            return {
+                from: document.getElementById('chartFromMonth').value,
+                to: document.getElementById('chartToMonth').value
+            };
+        }
+
+        ['chartFromMonth', 'chartToMonth'].forEach(id => {
+            document.getElementById(id).addEventListener('change', () => {
+                const { from, to } = getChartRange();
+                if (from > to) return;
+                if (trendChart) { trendChart.destroy(); trendChart = null; }
+                trendChart = renderTrendChart(buildChartData(data, currentChartType, currentChartCfg, { from, to }));
+            });
+        });
+
+// 카드 클릭 → 해당 데이터 그래프
+        const cardChartMap = {
+            'ytSubscribers': { key: 'youtube_subscribers', label: 'YouTube 구독자', color: '#ef4444', title: 'YouTube 구독자 추이' },
+            'ytViews':       { key: 'youtube_avg_views',   label: 'YouTube 평균 조회수', color: '#f97316', title: 'YouTube 평균 조회수 추이' },
+            'inFollowers':   { key: 'linkedin_followers',  label: 'LinkedIn 팔로워', color: '#3b82f6', title: 'LinkedIn 팔로워 추이' },
+        };
+
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', () => {
+                const valueEl = card.querySelector('.value');
+                if (!valueEl) return;
+                const id = valueEl.id;
+
+                // 이미 활성화된 카드 다시 클릭 시 닫기
+                if (card.classList.contains('active-chart')) {
+                    card.classList.remove('active-chart');
+                    trendPanel.classList.remove('open');
+                    return;
+                }
+
+                document.querySelectorAll('.card').forEach(c => c.classList.remove('active-chart'));
+                card.classList.add('active-chart');
+
+                if (cardChartMap[id]) {
+                    const cfg = cardChartMap[id];
+                    document.getElementById('trendChartTitle').textContent = cfg.title;
+                    openTrendChart('history', cfg);
+                } else if (id === 'blogTotalPosts' || id === 'blogAvgViews') {
+                    const isCount = id === 'blogTotalPosts';
+                    document.getElementById('trendChartTitle').textContent = isCount ? '월별 블로그 게시글 수' : '월별 블로그 평균 조회수';
+                    openTrendChart('blog', { isCount });
+                } else if (id === 'inPosts') {
+                    document.getElementById('trendChartTitle').textContent = '월별 LinkedIn 게시물 수';
+                    openTrendChart('linkedin');
+                }
+            });
+        });
+
         // 초기 렌더링 (가장 최근 월)
         if (months.length > 0) {
             monthSelector.value = months[0];
@@ -154,6 +244,120 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('lastUpdated').textContent = '데이터 로드 실패';
     }
 });
+
+function getMonthlyLastHistory(data) {
+    const history = (data.history || []).filter(h => h.date >= '2026').sort((a, b) => a.date.localeCompare(b.date));
+    const byMonth = {};
+    history.forEach(h => {
+        const m = h.date.slice(0, 7);
+        byMonth[m] = h; // 같은 월이면 뒤에 오는 게 마지막 항목
+    });
+    return Object.entries(byMonth).sort((a, b) => a[0].localeCompare(b[0])).map(([month, h]) => ({ month, ...h }));
+}
+
+function monthLabel(m) {
+    return `${parseInt(m.split('-')[1])}월`;
+}
+
+function buildChartData(data, type, cfg = {}, range = null) {
+    function filterMonthly(monthly) {
+        if (!range) return monthly;
+        return monthly.filter(h => h.month >= range.from && h.month <= range.to);
+    }
+    function filterByMonth(list) {
+        if (!range) return list;
+        return list.filter(p => p.date.slice(0, 7) >= range.from && p.date.slice(0, 7) <= range.to);
+    }
+
+    if (type === 'default') {
+        const monthly = filterMonthly(getMonthlyLastHistory(data));
+        return {
+            labels: monthly.map(h => monthLabel(h.month)),
+            dual: true,
+            datasets: [
+                { label: 'YouTube 구독자', data: monthly.map(h => h.youtube_subscribers || null), color: '#ef4444', axisId: 'yt', axisLabel: 'YouTube 구독자' },
+                { label: 'LinkedIn 팔로워', data: monthly.map(h => h.linkedin_followers || null), color: '#3b82f6', axisId: 'in', axisLabel: 'LinkedIn 팔로워' }
+            ]
+        };
+    }
+    if (type === 'history') {
+        const monthly = filterMonthly(getMonthlyLastHistory(data));
+        return {
+            labels: monthly.map(h => monthLabel(h.month)),
+            dual: false,
+            datasets: [{ label: cfg.label, data: monthly.map(h => h[cfg.key] || null), color: cfg.color }]
+        };
+    }
+    if (type === 'blog') {
+        const byMonth = {};
+        (data.blog_posts_list || []).forEach(p => {
+            const m = p.date.slice(0, 7);
+            if (!byMonth[m]) byMonth[m] = { count: 0, views: 0 };
+            byMonth[m].count++;
+            byMonth[m].views += p.views || 0;
+        });
+        const months = Object.keys(byMonth).sort().filter(m => !range || (m >= range.from && m <= range.to));
+        return {
+            labels: months.map(monthLabel),
+            dual: false,
+            bar: true,
+            datasets: [{ label: cfg.isCount ? '게시글 수' : '평균 조회수', data: months.map(m => cfg.isCount ? byMonth[m].count : Math.round(byMonth[m].views / byMonth[m].count)), color: '#10b981' }]
+        };
+    }
+    if (type === 'linkedin') {
+        const byMonth = {};
+        (data.linkedin_posts_list || []).forEach(p => {
+            const m = p.date.slice(0, 7);
+            byMonth[m] = (byMonth[m] || 0) + 1;
+        });
+        const months = Object.keys(byMonth).sort().filter(m => !range || (m >= range.from && m <= range.to));
+        return { labels: months.map(monthLabel), dual: false, bar: true, datasets: [{ label: '게시물 수', data: months.map(m => byMonth[m]), color: '#3b82f6' }] };
+    }
+}
+
+function renderTrendChart(chartData) {
+    const ctx = document.getElementById('trendChart').getContext('2d');
+    const { labels, datasets, dual, bar } = chartData;
+    const type = bar ? 'bar' : 'line';
+
+    const chartDatasets = datasets.map((d, i) => ({
+        label: d.label,
+        data: d.data,
+        borderColor: d.color,
+        backgroundColor: d.color.replace(')', ', 0.15)').replace('rgb', 'rgba'),
+        yAxisID: dual ? d.axisId : 'y',
+        tension: 0.3,
+        pointRadius: bar ? undefined : 2,
+        fill: false,
+        spanGaps: true,
+    }));
+
+    const scales = {
+        x: { ticks: { color: '#94a3b8', maxTicksLimit: 12, display: true, padding: 8 }, grid: { color: 'rgba(255,255,255,0.05)' }, display: true }
+    };
+
+    if (dual) {
+        scales['yt'] = { type: 'linear', position: 'left',  ticks: { color: '#ef4444' }, grid: { color: 'rgba(255,255,255,0.05)' }, title: { display: true, text: datasets[0].axisLabel, color: '#ef4444' } };
+        scales['in'] = { type: 'linear', position: 'right', ticks: { color: '#3b82f6' }, grid: { drawOnChartArea: false }, title: { display: true, text: datasets[1].axisLabel, color: '#3b82f6' } };
+    } else {
+        scales['y'] = { ticks: { color: '#94a3b8' }, grid: { color: 'rgba(255,255,255,0.05)' } };
+    }
+
+    return new Chart(ctx, {
+        type,
+        data: { labels, datasets: chartDatasets },
+        options: {
+            responsive: true,
+            layout: { padding: { top: 10, bottom: 10 } },
+            interaction: { mode: 'index', intersect: false },
+            plugins: {
+                legend: { labels: { color: '#cbd5e1' } },
+                tooltip: { callbacks: { label: c => `${c.dataset.label}: ${new Intl.NumberFormat('ko-KR').format(c.parsed.y)}` } }
+            },
+            scales
+        }
+    });
+}
 
 function renderDashboard(data, selectedMonth, dateRange) {
     // 날짜 필터 함수

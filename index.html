@@ -7,6 +7,7 @@
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 </head>
 <body>
     <div class="dashboard-container">
@@ -32,11 +33,24 @@
                     <button id="dateRangeReset" class="date-btn-reset">초기화</button>
                 </div>
                 </div>
-                <div class="last-updated" id="lastUpdated">업데이트 중...</div>
+<div class="last-updated" id="lastUpdated">업데이트 중...</div>
             </div>
         </header>
 
         <main>
+            <!-- 추이 차트 (접힘/펼침) -->
+            <div class="trend-panel glass" id="trendPanel">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+                    <h3 id="trendChartTitle" style="font-size:1.1rem; color:#f1f5f9;">구독자 · 팔로워 추이</h3>
+                    <div style="display:flex; align-items:center; gap:0.4rem;">
+                        <select id="chartFromMonth" class="date-select"></select>
+                        <span style="color:#94a3b8;">~</span>
+                        <select id="chartToMonth" class="date-select"></select>
+                    </div>
+                </div>
+                <canvas id="trendChart" height="100"></canvas>
+            </div>
+
             <!-- Summary Cards: 6열 (YouTube 2 + Blog 2 + LinkedIn 2) -->
             <section class="cards-grid">
                 <div class="card glass">

@@ -197,11 +197,42 @@ def append_rows(service, rows):
     ).execute()
 
 
+def update_subscriber_counts(service, data):
+    """E4(링크드인 팔로워), G4(유튜브 구독자) 업데이트"""
+    history = sorted(data.get('history', []), key=lambda x: x['date'])
+
+    linkedin_followers = None
+    youtube_subscribers = None
+    for h in reversed(history):
+        if linkedin_followers is None and h.get('linkedin_followers', 0) > 0:
+            linkedin_followers = h['linkedin_followers']
+        if youtube_subscribers is None and h.get('youtube_subscribers', 0) > 0:
+            youtube_subscribers = h['youtube_subscribers']
+        if linkedin_followers is not None and youtube_subscribers is not None:
+            break
+
+    updates = []
+    if linkedin_followers is not None:
+        updates.append({'range': f"'{SHEET_NAME}'!F4", 'values': [[linkedin_followers]]})
+    if youtube_subscribers is not None:
+        updates.append({'range': f"'{SHEET_NAME}'!G4", 'values': [[youtube_subscribers]]})
+
+    if updates:
+        service.spreadsheets().values().batchUpdate(
+            spreadsheetId=SPREADSHEET_ID,
+            body={'valueInputOption': 'RAW', 'data': updates}
+        ).execute()
+        print(f"  구독자 업데이트 완료 → 링크드인 팔로워: {linkedin_followers}, 유튜브 구독자: {youtube_subscribers}")
+
+
 def main():
     print("Google Sheets 동기화 시작...")
 
     service = get_sheets_service()
     data = load_data_js()
+
+    print("구독자/팔로워 수 업데이트 중...")
+    update_subscriber_counts(service, data)
 
     existing = get_existing_data(service)
     print(f"시트 기존 항목: {len(existing)}개")

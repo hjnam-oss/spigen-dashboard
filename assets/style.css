@@ -229,6 +229,37 @@ a.post-title:hover {
     color: #94a3b8;
 }
 
+/* Trend Panel */
+.trend-panel {
+    margin-bottom: 1.5rem;
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 1.5rem;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.3s ease;
+}
+
+.trend-panel.open {
+    max-height: 500px;
+    opacity: 1;
+    padding: 1.5rem;
+}
+
+.card {
+    cursor: pointer;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.card:hover {
+    border-color: rgba(96, 165, 250, 0.5);
+    box-shadow: 0 0 0 1px rgba(96, 165, 250, 0.3);
+}
+
+.card.active-chart {
+    border-color: rgba(96, 165, 250, 0.8);
+    box-shadow: 0 0 0 2px rgba(96, 165, 250, 0.3);
+}
+
 /* Count Badge */
 .count-badge {
     display: inline-flex;
