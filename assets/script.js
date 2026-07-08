@@ -163,13 +163,14 @@ function renderDashboard(data, selectedMonth, dateRange) {
     };
 
     const filteredHistory = data.history.filter(item => inRange(item.date));
+    let previous = null;
 
     // 구독자/조회수 카드 — history 있을 때만
     if (filteredHistory.length > 0) {
         const latest = filteredHistory[filteredHistory.length - 1];
 
         // 전월 마지막 항목을 previous로 사용 (날짜 범위 모드에서는 범위 시작 직전 항목)
-        let previous = latest;
+        previous = latest;
         if (dateRange) {
             const beforeRange = data.history.filter(item => item.date < dateRange.from);
             if (beforeRange.length > 0) previous = beforeRange[beforeRange.length - 1];
@@ -266,8 +267,24 @@ function renderDashboard(data, selectedMonth, dateRange) {
         const totalViews = filteredVideos.reduce((sum, v) => sum + (v.views || 0), 0);
         const avgViews = Math.round(totalViews / filteredVideos.length);
         ytViewsEl.textContent = new Intl.NumberFormat('ko-KR').format(avgViews);
-        ytViewsTrendEl.textContent = `총 ${new Intl.NumberFormat('ko-KR').format(totalViews)}회`;
-        ytViewsTrendEl.style.color = '#94a3b8';
+        if (dateRange) {
+            ytViewsTrendEl.textContent = `총 ${new Intl.NumberFormat('ko-KR').format(totalViews)}회`;
+            ytViewsTrendEl.style.color = '#94a3b8';
+        } else {
+            // 월 선택 모드: 전월 대비
+            const prevAvg = filteredHistory.length > 0 && previous ? (previous.youtube_avg_views || 0) : 0;
+            const diff = avgViews - prevAvg;
+            if (diff > 0) {
+                ytViewsTrendEl.textContent = `↑ ${new Intl.NumberFormat('ko-KR').format(diff)} (전월 대비)`;
+                ytViewsTrendEl.style.color = '#10b981';
+            } else if (diff < 0) {
+                ytViewsTrendEl.textContent = `↓ ${new Intl.NumberFormat('ko-KR').format(Math.abs(diff))} (전월 대비)`;
+                ytViewsTrendEl.style.color = '#ef4444';
+            } else {
+                ytViewsTrendEl.textContent = '- 변동 없음';
+                ytViewsTrendEl.style.color = '#94a3b8';
+            }
+        }
     } else {
         ytViewsEl.textContent = '-';
         ytViewsTrendEl.textContent = '영상 없음';
