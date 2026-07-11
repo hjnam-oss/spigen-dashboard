@@ -1,5 +1,5 @@
 const metricsData = {
-    "last_updated": "2026-07-10 20:26:44 KST",
+    "last_updated": "2026-07-11 16:25:11 KST",
     "history": [
         {
             "date": "2026-01-31",
@@ -175,6 +175,14 @@ const metricsData = {
             "youtube_avg_views": 980,
             "blog_total_posts": 233,
             "linkedin_followers": 2427
+        },
+        {
+            "date": "2026-07-11",
+            "youtube_subscribers": 281,
+            "youtube_views": 90248,
+            "youtube_avg_views": 982,
+            "blog_total_posts": 233,
+            "linkedin_followers": 2429
         }
     ],
     "recent_blog_posts": [
@@ -241,7 +249,7 @@ const metricsData = {
             "title": "아마존 이탈리아가 1위🥇를 유지할 수 있는 이유 | 글로벌 체크인",
             "thumbnail": "https://i.ytimg.com/vi/EyndsOeLX_c/mqdefault.jpg",
             "date": "2026-07-07",
-            "views": 1591,
+            "views": 1590,
             "likes": 5
         },
         {
@@ -257,7 +265,7 @@ const metricsData = {
             "title": "우리가 몰랐던 이탈리아의 충격적인 비밀 | 글로벌 체크인",
             "thumbnail": "https://i.ytimg.com/vi/jZhm2YUFzxQ/mqdefault.jpg",
             "date": "2026-07-06",
-            "views": 1683,
+            "views": 1684,
             "likes": 10
         },
         {
@@ -265,7 +273,7 @@ const metricsData = {
             "title": "같은 나라, 다른 세상? 이탈리아 지도에 그어진 ‘보이지 않는 선’ | 글로벌 체크인",
             "thumbnail": "https://i.ytimg.com/vi/cdLTxLdHjtc/mqdefault.jpg",
             "date": "2026-07-03",
-            "views": 361,
+            "views": 371,
             "likes": 15
         },
         {
@@ -289,7 +297,7 @@ const metricsData = {
             "title": "AI Native 조직은 신규입사자 워크숍에서 어떤 걸 할까? | 2026 슈피겐코리아 신규입사자 워크숍",
             "thumbnail": "https://i.ytimg.com/vi/7r_xjnTnBGQ/mqdefault.jpg",
             "date": "2026-06-22",
-            "views": 1922,
+            "views": 1923,
             "likes": 12
         },
         {
@@ -297,7 +305,7 @@ const metricsData = {
             "title": "입사 한 달차를 모두 모은 이유? 슈피겐의 온보딩 프로그램 '월간 체크인🔎'",
             "thumbnail": "https://i.ytimg.com/vi/djq41wjSnbQ/mqdefault.jpg",
             "date": "2026-06-18",
-            "views": 396,
+            "views": 397,
             "likes": 9
         },
         {
@@ -361,7 +369,7 @@ const metricsData = {
             "title": "아마존이 '고전'하는 나라? 싱가포르의 1,2위 플랫폼, 쇼피와 라자다 | 글로벌 체크인",
             "thumbnail": "https://i.ytimg.com/vi/Zfz-75wLfYY/mqdefault.jpg",
             "date": "2026-04-28",
-            "views": 328,
+            "views": 329,
             "likes": 21
         },
         {
@@ -369,7 +377,7 @@ const metricsData = {
             "title": "어서 와, 신입사원은 처음이지? ✨ 신규입사자의 출근 첫날 VLOG",
             "thumbnail": "https://i.ytimg.com/vi/sGkR4slN6a4/mqdefault.jpg",
             "date": "2026-04-21",
-            "views": 515,
+            "views": 516,
             "likes": 12
         },
         {
@@ -409,7 +417,7 @@ const metricsData = {
             "title": "📢현직자피셜📢 해외 영업 담당이 가져야 할 3가지 핵심 역량",
             "thumbnail": "https://i.ytimg.com/vi/ZdF-Hp31a2U/mqdefault.jpg",
             "date": "2026-03-17",
-            "views": 2127,
+            "views": 2133,
             "likes": 12
         },
         {
@@ -425,7 +433,7 @@ const metricsData = {
             "title": "전 세계 50개국 시장을 장악한 글로벌 전략가들🔥ㅣ슈피겐코리아의 해외전략사업부를 소개합니다",
             "thumbnail": "https://i.ytimg.com/vi/bOcMaDLEsoE/mqdefault.jpg",
             "date": "2026-03-13",
-            "views": 805,
+            "views": 806,
             "likes": 21
         },
         {
@@ -473,7 +481,7 @@ const metricsData = {
             "title": "아마존 이커머스 시장을 주도하는 1,000억 사업부🔥ㅣ 슈피겐코리아의 아마존직판사업부를 소개합니다",
             "thumbnail": "https://i.ytimg.com/vi/ERlv50cB2CM/mqdefault.jpg",
             "date": "2026-02-27",
-            "views": 686,
+            "views": 687,
             "likes": 25
         },
         {
@@ -489,7 +497,7 @@ const metricsData = {
             "title": "아마존 베스트셀러 기업의 사옥은 어떻게 생겼을까?👀ㅣ슈피겐코리아 랜선 오피스투어🚩",
             "thumbnail": "https://i.ytimg.com/vi/a_T3JJtkRFE/mqdefault.jpg",
             "date": "2026-01-30",
-            "views": 1493,
+            "views": 1494,
             "likes": 7
         },
         {
@@ -505,7 +513,7 @@ const metricsData = {
             "title": "슈피겐코리아가 만들어가는 '일하는 방식' - 회계 RPA 자동화 사례",
             "thumbnail": "https://i.ytimg.com/vi/XteRE-5ZB6c/mqdefault.jpg",
             "date": "2026-01-05",
-            "views": 525,
+            "views": 526,
             "likes": 17
         }
     ],
@@ -515,91 +523,91 @@ const metricsData = {
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - FDI전략기획팀",
             "category": "Culture",
             "date": "2026-06-12",
-            "views": 350
+            "views": 357
         },
         {
             "id": "1167",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 해외사업부문",
             "category": "Culture",
             "date": "2026-06-12",
-            "views": 369
+            "views": 377
         },
         {
             "id": "1166",
             "title": "골프공으로 시장을 설득하는 법",
             "category": "Culture",
             "date": "2026-06-11",
-            "views": 338
+            "views": 348
         },
         {
             "id": "1165",
             "title": "직무 이야기 : 모바일제품개발팀 제품 디자이너",
             "category": "Job",
             "date": "2026-06-11",
-            "views": 406
+            "views": 420
         },
         {
             "id": "1159",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 고객경험전략팀",
             "category": "Culture",
             "date": "2026-05-29",
-            "views": 576
+            "views": 586
         },
         {
             "id": "1158",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 연구개발부문",
             "category": "Culture",
             "date": "2026-05-18",
-            "views": 704
+            "views": 715
         },
         {
             "id": "1155",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 인재개발팀",
             "category": "Culture",
             "date": "2026-05-07",
-            "views": 702
+            "views": 720
         },
         {
             "id": "1153",
             "title": "매일의 충전을 다시 설계하다",
             "category": "& Design",
             "date": "2026-04-28",
-            "views": 638
+            "views": 645
         },
         {
             "id": "1151",
             "title": "슈피겐, 기술을 넘어 기억까지 보호하다",
             "category": "& Design",
             "date": "2026-04-17",
-            "views": 719
+            "views": 728
         },
         {
             "id": "1148",
             "title": "[Playlist] 우수사원 - 김회섭프로의 워크 키트",
             "category": "People",
             "date": "2026-03-26",
-            "views": 728
+            "views": 738
         },
         {
             "id": "1142",
             "title": "[Brand Insight] 모바일 액세서리 1위를 넘어 골프 시장의 게임 체인저로, '레가토(Legato)'",
             "category": "Culture",
             "date": "2026-03-13",
-            "views": 880
+            "views": 892
         },
         {
             "id": "1141",
             "title": "[Playlist] 우수사원 - 동단비프로의 워크 키트",
             "category": "People",
             "date": "2026-02-23",
-            "views": 1008
+            "views": 1015
         },
         {
             "id": "1140",
             "title": "[Playlist] 우수사원 - 나아름프로의 워크 키트",
             "category": "People",
             "date": "2026-02-13",
-            "views": 609
+            "views": 610
         },
         {
             "id": "1138",
@@ -613,21 +621,21 @@ const metricsData = {
             "title": "[Playlist] 우수사원 - 이재승리더의 워크 키트",
             "category": "People",
             "date": "2026-01-29",
-            "views": 646
+            "views": 650
         },
         {
             "id": "1136",
             "title": "인프라관리: 비즈니스 연속성을 만드는 엔지니어",
             "category": "Job",
             "date": "2026-01-20",
-            "views": 547
+            "views": 548
         },
         {
             "id": "1135",
             "title": "26년 시무식 현장",
             "category": "Culture",
             "date": "2026-01-07",
-            "views": 604
+            "views": 607
         }
     ],
     "linkedin_posts_list": [
@@ -744,20 +752,20 @@ const metricsData = {
             "shares": 0
         },
         {
-            "id": "7449337644095832065",
-            "url": "https://www.linkedin.com/posts/spigenkorea_%EC%8A%88%ED%94%BC%EA%B2%90-%EC%9D%B8%EC%9E%AC%EA%B0%9C%EB%B0%9C%ED%8C%80%EC%9D%98-%EB%B4%84%EC%82%B0%EC%B1%85-1%EC%B4%88-%EB%B8%8C%EC%9D%B4%EB%A1%9C%EA%B7%B8-activity-7449337644095832065-PnB_",
-            "content": "슈피겐코리아의 봄 맞이 방법 <산책하고 인생샷>",
-            "date": "2026-04-13",
-            "likes": 14,
-            "shares": 1
-        },
-        {
             "id": "7449332354159902721",
             "url": "https://www.linkedin.com/posts/spigenkorea_svkujoqrctgkreesji-suattq-rwwttq-activity-7449332354159902721-82SZ",
             "content": "슈피겐코리아, 임직원이 직접 만든 기부금 1,000만 원",
             "date": "2026-04-13",
             "likes": 33,
             "shares": 0
+        },
+        {
+            "id": "7449337644095832065",
+            "url": "https://www.linkedin.com/posts/spigenkorea_%EC%8A%88%ED%94%BC%EA%B2%90-%EC%9D%B8%EC%9E%AC%EA%B0%9C%EB%B0%9C%ED%8C%80%EC%9D%98-%EB%B4%84%EC%82%B0%EC%B1%85-1%EC%B4%88-%EB%B8%8C%EC%9D%B4%EB%A1%9C%EA%B7%B8-activity-7449337644095832065-PnB_",
+            "content": "슈피겐코리아의 봄 맞이 방법 <산책하고 인생샷>",
+            "date": "2026-04-13",
+            "likes": 14,
+            "shares": 1
         },
         {
             "id": "7445660372222521344",
