@@ -286,10 +286,6 @@ def main():
     else:
         data['history'].append(today_entry)
         
-    # 최대 30일치 데이터만 보관
-    if len(data['history']) > 30:
-        data['history'] = data['history'][-30:]
-        
     if blog_data and blog_data.get('posts'):
         # 블로그 게시물 교체 방식 (삭제된 글 자동 반영)
         data['blog_posts_list'] = sorted(blog_data['posts'], key=lambda x: x['date'], reverse=True)
