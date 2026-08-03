@@ -281,6 +281,18 @@ function buildChartData(data, type, cfg = {}, range = null) {
         };
     }
     if (type === 'history') {
+        if (cfg.key === 'youtube_avg_views') {
+            const byMonth = {};
+            (data.youtube_videos_list || []).forEach(v => {
+                const m = v.date ? v.date.slice(0, 7) : null;
+                if (!m) return;
+                if (!byMonth[m]) byMonth[m] = { count: 0, views: 0 };
+                byMonth[m].count++;
+                byMonth[m].views += v.views || 0;
+            });
+            const months = Object.keys(byMonth).sort().filter(m => !range || (m >= range.from && m <= range.to));
+            return { labels: months.map(monthLabel), dual: false, datasets: [{ label: cfg.label, data: months.map(m => Math.round(byMonth[m].views / byMonth[m].count)), color: cfg.color }] };
+        }
         const monthly = filterMonthly(getMonthlyLastHistory(data));
         return {
             labels: monthly.map(h => monthLabel(h.month)),
