@@ -488,7 +488,9 @@ function renderDashboard(data, selectedMonth, dateRange) {
             ytViewsTrendEl.style.color = '#94a3b8';
         } else {
             // 월 선택 모드: 전월 대비
-            const prevAvg = filteredHistory.length > 0 && previous ? (previous.youtube_avg_views || 0) : 0;
+            const prevMonth = selectedMonth.slice(0, 4) + '-' + String(parseInt(selectedMonth.slice(5, 7)) - 1).padStart(2, '0');
+            const prevVideos = (data.youtube_videos_list || []).filter(v => v.date && v.date.startsWith(prevMonth));
+            const prevAvg = prevVideos.length > 0 ? Math.round(prevVideos.reduce((s, v) => s + (v.views || 0), 0) / prevVideos.length) : 0;
             const diff = avgViews - prevAvg;
             if (diff > 0) {
                 ytViewsTrendEl.textContent = `↑ ${new Intl.NumberFormat('ko-KR').format(diff)} (전월 대비)`;
