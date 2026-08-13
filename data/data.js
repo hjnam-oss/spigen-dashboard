@@ -1,5 +1,5 @@
 const metricsData = {
-    "last_updated": "2026-08-12 10:25:49 KST",
+    "last_updated": "2026-08-13 10:27:03 KST",
     "history": [
         {
             "date": "2026-01-31",
@@ -376,6 +376,14 @@ const metricsData = {
             "youtube_avg_views": 1094,
             "blog_total_posts": 233,
             "linkedin_followers": 2455
+        },
+        {
+            "date": "2026-08-13",
+            "youtube_subscribers": 290,
+            "youtube_views": 101474,
+            "youtube_avg_views": 1105,
+            "blog_total_posts": 233,
+            "linkedin_followers": 2456
         }
     ],
     "recent_blog_posts": [
@@ -442,7 +450,7 @@ const metricsData = {
             "title": "글로벌 제품 기획/디자인 일경험 인턴 vlog | 슈피겐코리아",
             "thumbnail": "https://i.ytimg.com/vi/EqzfFkUBmn8/mqdefault.jpg",
             "date": "2026-08-10",
-            "views": 786,
+            "views": 805,
             "likes": 16
         },
         {
@@ -450,7 +458,7 @@ const metricsData = {
             "title": "무더위 시원하게 보내는 법🍦",
             "thumbnail": "https://i.ytimg.com/vi/AXzWmkGg5Gc/mqdefault.jpg",
             "date": "2026-08-03",
-            "views": 1403,
+            "views": 1405,
             "likes": 15
         },
         {
@@ -458,7 +466,7 @@ const metricsData = {
             "title": "프랑스 아마존 셀러가 꼭 지켜야하는 '이것'? | 글로벌 체크인",
             "thumbnail": "https://i.ytimg.com/vi/UR5YOqf9ggA/mqdefault.jpg",
             "date": "2026-07-31",
-            "views": 1478,
+            "views": 1479,
             "likes": 6
         },
         {
@@ -482,7 +490,7 @@ const metricsData = {
             "title": "330조 원 시장 프랑스🗼가 가진 독특한 소비 기준 | 글로벌 체크인",
             "thumbnail": "https://i.ytimg.com/vi/7JvbwJK266w/mqdefault.jpg",
             "date": "2026-07-29",
-            "views": 113,
+            "views": 115,
             "likes": 9
         },
         {
@@ -514,7 +522,7 @@ const metricsData = {
             "title": "이탈리아 남부의 폭발적인 성장🌋 | 글로벌 체크인",
             "thumbnail": "https://i.ytimg.com/vi/j2TBhGxDhMg/mqdefault.jpg",
             "date": "2026-07-06",
-            "views": 303,
+            "views": 304,
             "likes": 3
         },
         {
@@ -530,7 +538,7 @@ const metricsData = {
             "title": "같은 나라, 다른 세상? 이탈리아 지도에 그어진 ‘보이지 않는 선’ | 글로벌 체크인",
             "thumbnail": "https://i.ytimg.com/vi/cdLTxLdHjtc/mqdefault.jpg",
             "date": "2026-07-03",
-            "views": 450,
+            "views": 451,
             "likes": 16
         },
         {
@@ -562,7 +570,7 @@ const metricsData = {
             "title": "입사 한 달차를 모두 모은 이유? 슈피겐의 온보딩 프로그램 '월간 체크인🔎'",
             "thumbnail": "https://i.ytimg.com/vi/djq41wjSnbQ/mqdefault.jpg",
             "date": "2026-06-18",
-            "views": 461,
+            "views": 462,
             "likes": 9
         },
         {
@@ -570,7 +578,7 @@ const metricsData = {
             "title": "유럽 평균을 뛰어넘은 스페인의 의외의 쇼핑 품목 | 글로벌체크인",
             "thumbnail": "https://i.ytimg.com/vi/0_cjlAYrhbE/mqdefault.jpg",
             "date": "2026-05-29",
-            "views": 285,
+            "views": 286,
             "likes": 6
         },
         {
@@ -578,7 +586,7 @@ const metricsData = {
             "title": "스페인 관광객이 운전을 하는 진짜 이유 | 글로벌체크인",
             "thumbnail": "https://i.ytimg.com/vi/G_GUlJTcJXI/mqdefault.jpg",
             "date": "2026-05-29",
-            "views": 3753,
+            "views": 3754,
             "likes": 25
         },
         {
@@ -610,7 +618,7 @@ const metricsData = {
             "title": "싱가포르에 유독 프리미엄 소비층이 탄탄한 이유 | 글로벌체크인",
             "thumbnail": "https://i.ytimg.com/vi/SfZe1ItJYlc/mqdefault.jpg",
             "date": "2026-04-29",
-            "views": 1959,
+            "views": 1960,
             "likes": 11
         },
         {
@@ -674,7 +682,7 @@ const metricsData = {
             "title": "📢현직자피셜📢 해외 영업 담당이 가져야 할 3가지 핵심 역량",
             "thumbnail": "https://i.ytimg.com/vi/ZdF-Hp31a2U/mqdefault.jpg",
             "date": "2026-03-17",
-            "views": 2419,
+            "views": 2429,
             "likes": 14
         },
         {
@@ -770,7 +778,7 @@ const metricsData = {
             "title": "슈피겐코리아가 만들어가는 '일하는 방식' - 회계 RPA 자동화 사례",
             "thumbnail": "https://i.ytimg.com/vi/XteRE-5ZB6c/mqdefault.jpg",
             "date": "2026-01-05",
-            "views": 591,
+            "views": 595,
             "likes": 17
         }
     ],
@@ -780,119 +788,119 @@ const metricsData = {
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - FDI전략기획팀",
             "category": "Culture",
             "date": "2026-06-12",
-            "views": 513
+            "views": 518
         },
         {
             "id": "1167",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 해외사업부문",
             "category": "Culture",
             "date": "2026-06-12",
-            "views": 568
+            "views": 573
         },
         {
             "id": "1166",
             "title": "골프공으로 시장을 설득하는 법",
             "category": "Culture",
             "date": "2026-06-11",
-            "views": 586
+            "views": 597
         },
         {
             "id": "1165",
             "title": "직무 이야기 : 모바일제품개발팀 제품 디자이너",
             "category": "Job",
             "date": "2026-06-11",
-            "views": 603
+            "views": 607
         },
         {
             "id": "1159",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 고객경험전략팀",
             "category": "Culture",
             "date": "2026-05-29",
-            "views": 722
+            "views": 728
         },
         {
             "id": "1158",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 연구개발부문",
             "category": "Culture",
             "date": "2026-05-18",
-            "views": 866
+            "views": 868
         },
         {
             "id": "1155",
             "title": "AI를 쓰는 팀에서 AI와 일하는 팀으로 - 인재개발팀",
             "category": "Culture",
             "date": "2026-05-07",
-            "views": 878
+            "views": 883
         },
         {
             "id": "1153",
             "title": "매일의 충전을 다시 설계하다",
             "category": "& Design",
             "date": "2026-04-28",
-            "views": 785
+            "views": 788
         },
         {
             "id": "1151",
             "title": "슈피겐, 기술을 넘어 기억까지 보호하다",
             "category": "& Design",
             "date": "2026-04-17",
-            "views": 887
+            "views": 889
         },
         {
             "id": "1148",
             "title": "[Playlist] 우수사원 - 김회섭프로의 워크 키트",
             "category": "People",
             "date": "2026-03-26",
-            "views": 878
+            "views": 881
         },
         {
             "id": "1142",
             "title": "[Brand Insight] 모바일 액세서리 1위를 넘어 골프 시장의 게임 체인저로, '레가토(Legato)'",
             "category": "Culture",
             "date": "2026-03-13",
-            "views": 1074
+            "views": 1080
         },
         {
             "id": "1141",
             "title": "[Playlist] 우수사원 - 동단비프로의 워크 키트",
             "category": "People",
             "date": "2026-02-23",
-            "views": 1179
+            "views": 1180
         },
         {
             "id": "1140",
             "title": "[Playlist] 우수사원 - 나아름프로의 워크 키트",
             "category": "People",
             "date": "2026-02-13",
-            "views": 652
+            "views": 653
         },
         {
             "id": "1138",
             "title": "슈피겐코리아 랜선 오피스투어",
             "category": "Culture",
             "date": "2026-02-02",
-            "views": 944
+            "views": 949
         },
         {
             "id": "1137",
             "title": "[Playlist] 우수사원 - 이재승리더의 워크 키트",
             "category": "People",
             "date": "2026-01-29",
-            "views": 693
+            "views": 695
         },
         {
             "id": "1136",
             "title": "인프라관리: 비즈니스 연속성을 만드는 엔지니어",
             "category": "Job",
             "date": "2026-01-20",
-            "views": 575
+            "views": 580
         },
         {
             "id": "1135",
             "title": "26년 시무식 현장",
             "category": "Culture",
             "date": "2026-01-07",
-            "views": 668
+            "views": 672
         }
     ],
     "linkedin_posts_list": [
